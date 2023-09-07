@@ -33,6 +33,7 @@ class partSelector(QDialog, QWidget, form_partSelector):
         
         data = None
         
+        # 왜 파이썬에는 switch문이 없지? (진짜 모름)
         if value[0] == constant.LEG :
             with open(constant.FILE_PATH_LEG, "r", encoding = "UTF-8") as file :
                 data = json.load(file)
