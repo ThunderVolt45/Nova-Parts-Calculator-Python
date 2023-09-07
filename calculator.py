@@ -21,6 +21,22 @@ weaponIndex = 0
 accIndex = 0
 
 # JSON 파일 읽기
+global legData
+with open(constant.FILE_PATH_LEG, "r", encoding = "UTF-8") as file :
+    legData = json.load(file)
+    
+global bodyData
+with open(constant.FILE_PATH_BODY, "r", encoding = "UTF-8") as file :
+    bodyData = json.load(file)
+    
+global weaponData
+with open(constant.FILE_PATH_WEAPON, "r", encoding = "UTF-8") as file :
+    weaponData = json.load(file)
+    
+global accData
+with open(constant.FILE_PATH_ACC, "r", encoding = "UTF-8") as file :
+    accData = json.load(file)
+    
 global subCoreData
 with open(constant.FILE_PATH_SUBCORE, "r", encoding = "UTF-8") as file :
     subCoreData = json.load(file)
@@ -74,6 +90,7 @@ class WindowClass(QMainWindow, form_class) :
         
         # 두 번째 창에서 값을 전달 받음
         legIndex = self.second.value
+        self.LegBtn.setText(legData["Name"][legIndex])
         
     @QtCore.pyqtSlot()
     def BodyBtnFunction(self) :
@@ -88,6 +105,7 @@ class WindowClass(QMainWindow, form_class) :
         
         # 두 번째 창에서 값을 전달 받음
         bodyIndex = self.second.value
+        self.BodyBtn.setText(bodyData["Name"][bodyIndex])
         
     @QtCore.pyqtSlot()
     def WeaponBtnFunction(self) :
@@ -102,6 +120,7 @@ class WindowClass(QMainWindow, form_class) :
         
         # 두 번째 창에서 값을 전달 받음
         weaponIndex = self.second.value
+        self.WeaponBtn.setText(weaponData["Name"][weaponIndex])
         
     @QtCore.pyqtSlot()
     def AccBtnFunction(self) :
@@ -116,6 +135,7 @@ class WindowClass(QMainWindow, form_class) :
         
         # 두 번째 창에서 값을 전달 받음
         accIndex = self.second.value
+        self.AccBtn.setText(accData["Name"][accIndex])
         
     def LegWattReinforce(self) : 
         string = self.Leg_wattReinforce.text()
@@ -162,8 +182,12 @@ class WindowClass(QMainWindow, form_class) :
             subCoreData["Special"][self.Body_Subcore.currentIndex()])
         
     def WeaponSubcoreSelect(self) :
-        self.Weapon_SubcoreLabel.setText(
-            subCoreData["Special"][self.Weapon_Subcore.currentIndex()])
+        if self.Weapon_Subcore.currentIndex() == constant.SAGITTARIUS :
+            self.Weapon_SubcoreLabel.setText(
+                subCoreData["Special"][constant.SAGITTARIUS_WEAPON])
+        else : 
+            self.Weapon_SubcoreLabel.setText(
+                subCoreData["Special"][self.Weapon_Subcore.currentIndex()])
 
 if __name__ == "__main__" :
     # QApplication : 프로그램을 실행시켜주는 클래스
