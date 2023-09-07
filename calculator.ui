@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Nova Parts Calculator</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="LegBtn">

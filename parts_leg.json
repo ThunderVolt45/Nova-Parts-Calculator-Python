@@ -1,7 +1,7 @@
 {
     "ID" : [ 0, 1, 2, 3, 4, 5 ],
     "Name" : [ "다리", "로드런너", "토들러", "캔터", "토들러N", "캐터필러" ],
-    "N" : [ false, false, false, false, false, false ],
+    "N" : [ false, false, false, false, true, false ],
     "Weight" : [ 0, 50, 70, 100, 70, 85 ],
     "Watt" : [ 0, 60, 70, 70, 70, 70 ],
     "Health" : [ 0, 0, 0, 0, 0, 0 ],

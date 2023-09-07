@@ -9,13 +9,11 @@ from partSelector import partSelector
 # UI파일 연결
 # 단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
 form_class = uic.loadUiType("calculator.ui")[0]
-subCore_file_path = "./subcore.json"
 
 global legIndex
 global bodyIndex
 global weaponIndex
 global accIndex
-global subCoreData
 
 legIndex = 0
 bodyIndex = 0
@@ -23,7 +21,8 @@ weaponIndex = 0
 accIndex = 0
 
 # JSON 파일 읽기
-with open(subCore_file_path, "r", encoding = "UTF-8") as file :
+global subCoreData
+with open(constant.FILE_PATH_SUBCORE, "r", encoding = "UTF-8") as file :
     subCoreData = json.load(file)
 
 # 화면을 띄우는데 사용되는 Class 선언
@@ -65,33 +64,44 @@ class WindowClass(QMainWindow, form_class) :
     @QtCore.pyqtSlot()
     def LegBtnFunction(self) :
         global legIndex
-        tempList = [ constant.LEG, legIndex ]
+        temp = [ constant.LEG, legIndex ]
         
+        # Widget 연결
         self.second = partSelector()
         self.signal.connect(self.second.on_signal_from_main) # 시그널 연결
-        self.signal.emit(tempList)
+        self.signal.emit(temp) # 값 전달
         self.second.exec() # 두 번째 창이 꺼질 때까지 대기
         
-        print("Leg Btn")
-        print(self.second.value) # 두 번째 창에서 값을 전달 받음
+        # 두 번째 창에서 값을 전달 받음
         legIndex = self.second.value
         
     @QtCore.pyqtSlot()
     def BodyBtnFunction(self) :
+        global bodyIndex
+        temp = [ constant.BODY, bodyIndex ]
+        
+        # Widget 연결
         self.second = partSelector()
-        self.signal.connect(self.second.on_signal_from_main)
-        self.signal.emit(constant.BODY)
+        self.signal.connect(self.second.on_signal_from_main) # 시그널 연결
+        self.signal.emit(temp) # 값 전달
         self.second.exec() # 두 번째 창이 꺼질 때까지 대기
-        print("Body Btn")
+        
+        # 두 번째 창에서 값을 전달 받음
+        bodyIndex = self.second.value
         
     @QtCore.pyqtSlot()
     def WeaponBtnFunction(self) :
+        global weaponIndex
+        temp = [ constant.WEAPON, weaponIndex ]
+        
         # Widget 연결
         self.second = partSelector()
         self.signal.connect(self.second.on_signal_from_main)
-        self.signal.emit(constant.WEAPON)
+        self.signal.emit(temp)
         self.second.exec() # 두 번째 창이 꺼질 때까지 대기
-        print("Weapon Btn")
+        
+        # 두 번째 창에서 값을 전달 받음
+        weaponIndex = self.second.value
         
     @QtCore.pyqtSlot()
     def AccBtnFunction(self) :

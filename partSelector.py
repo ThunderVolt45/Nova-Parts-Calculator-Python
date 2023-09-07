@@ -7,7 +7,6 @@ from PyQt5 import uic, QtCore
 # UI파일 연결
 # 단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
 form_partSelector = uic.loadUiType("partSelector.ui")[0]
-leg_file_path = "./parts_leg.json"
 
 class partSelector(QDialog, QWidget, form_partSelector):
     def __init__(self) :
@@ -27,17 +26,32 @@ class partSelector(QDialog, QWidget, form_partSelector):
         # 두 번째 창 실행
         self.show()
         
+    # 메인 창으로부터 메시지 수신
     @QtCore.pyqtSlot(list)
     def on_signal_from_main(self, value):
         self.comboBox.clear()
+        
+        data = None
+        
         if value[0] == constant.LEG :
-            with open(leg_file_path, "r", encoding = "UTF-8") as file :
+            with open(constant.FILE_PATH_LEG, "r", encoding = "UTF-8") as file :
                 data = json.load(file)
-                for i in range(len(data["ID"])):
-                    self.comboBox.addItem(data["Name"][i])
-                self.comboBox.setCurrentIndex(value[1])
                 
+        elif value[0] == constant.BODY :
+            with open(constant.FILE_PATH_BODY, "r", encoding = "UTF-8") as file :
+                data = json.load(file)
                 
+        elif value[0] == constant.WEAPON :
+            with open(constant.FILE_PATH_WEAPON, "r", encoding = "UTF-8") as file :
+                data = json.load(file)
+            
+        # elif value[0] == constant.ACC :
+        
+        for i in range(len(data["ID"])):
+            self.comboBox.addItem(data["Name"][i])
+        self.comboBox.setCurrentIndex(value[1])
+        self.value = value[1]
+            
     def selector(self):
         print(self.comboBox.currentIndex())
         
