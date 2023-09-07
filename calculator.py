@@ -1,19 +1,39 @@
 import sys
+import json
 import utils
+import constant
 from PyQt5.QtWidgets import *
-from PyQt5 import uic
+from PyQt5 import uic, QtCore
 from partSelector import partSelector
 
 # UI파일 연결
 # 단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
 form_class = uic.loadUiType("calculator.ui")[0]
+subCore_file_path = "./subcore.json"
+
+global legIndex
+global bodyIndex
+global weaponIndex
+global accIndex
+global subCoreData
+
+legIndex = 0
+bodyIndex = 0
+weaponIndex = 0
+accIndex = 0
+
+# JSON 파일 읽기
+with open(subCore_file_path, "r", encoding = "UTF-8") as file :
+    subCoreData = json.load(file)
 
 # 화면을 띄우는데 사용되는 Class 선언
 class WindowClass(QMainWindow, form_class) :
+    signal = QtCore.pyqtSignal(list)
+    
     def __init__(self) :
         super().__init__()
         self.setupUi(self)
-        
+            
         # QPushButton 기능 연결
         self.LegBtn.clicked.connect(self.LegBtnFunction)
         self.BodyBtn.clicked.connect(self.BodyBtnFunction)
@@ -36,23 +56,49 @@ class WindowClass(QMainWindow, form_class) :
         self.Body_Subcore.currentIndexChanged.connect(self.BodySubcoreSelect)
         self.Weapon_Subcore.currentIndexChanged.connect(self.WeaponSubcoreSelect)
         
-    def LegBtnFunction(self) :
-        self.second = partSelector()
-        self.second.exec() # 두 번째 창이 꺼질 때까지 대기
-        print("Leg Btn")
+        # QComboBox 초기화
+        for i in range(len(subCoreData["ID"])):
+            self.Leg_Subcore.addItem(subCoreData["Name"][i])
+            self.Body_Subcore.addItem(subCoreData["Name"][i])
+            self.Weapon_Subcore.addItem(subCoreData["Name"][i])
         
+    @QtCore.pyqtSlot()
+    def LegBtnFunction(self) :
+        global legIndex
+        tempList = [ constant.LEG, legIndex ]
+        
+        self.second = partSelector()
+        self.signal.connect(self.second.on_signal_from_main) # 시그널 연결
+        self.signal.emit(tempList)
+        self.second.exec() # 두 번째 창이 꺼질 때까지 대기
+        
+        print("Leg Btn")
+        print(self.second.value) # 두 번째 창에서 값을 전달 받음
+        legIndex = self.second.value
+        
+    @QtCore.pyqtSlot()
     def BodyBtnFunction(self) :
         self.second = partSelector()
+        self.signal.connect(self.second.on_signal_from_main)
+        self.signal.emit(constant.BODY)
         self.second.exec() # 두 번째 창이 꺼질 때까지 대기
         print("Body Btn")
         
+    @QtCore.pyqtSlot()
     def WeaponBtnFunction(self) :
+        # Widget 연결
         self.second = partSelector()
+        self.signal.connect(self.second.on_signal_from_main)
+        self.signal.emit(constant.WEAPON)
         self.second.exec() # 두 번째 창이 꺼질 때까지 대기
         print("Weapon Btn")
         
+    @QtCore.pyqtSlot()
     def AccBtnFunction(self) :
+        # Widget 연결
         self.second = partSelector()
+        self.signal.connect(self.second.on_signal_from_main)
+        self.signal.emit(constant.ACC)
         self.second.exec() # 두 번째 창이 꺼질 때까지 대기
         print("Acc Btn")
         
@@ -93,13 +139,16 @@ class WindowClass(QMainWindow, form_class) :
         self.Weapon_damageReinforce.setText(utils.lineEditToNum(string))
         
     def LegSubcoreSelect(self) :
-        print(self.Leg_Subcore.currentIndex())
+        self.Leg_SubcoreLabel.setText(
+            subCoreData["Special"][self.Leg_Subcore.currentIndex()])
         
     def BodySubcoreSelect(self) :
-        print(self.Body_Subcore.currentIndex())
+        self.Body_SubcoreLabel.setText(
+            subCoreData["Special"][self.Body_Subcore.currentIndex()])
         
     def WeaponSubcoreSelect(self) :
-        print(self.Weapon_Subcore.currentIndex())
+        self.Weapon_SubcoreLabel.setText(
+            subCoreData["Special"][self.Weapon_Subcore.currentIndex()])
 
 if __name__ == "__main__" :
     # QApplication : 프로그램을 실행시켜주는 클래스

@@ -1,0 +1,4 @@
+LEG = 1
+BODY = 2
+WEAPON = 3
+ACC = 4
