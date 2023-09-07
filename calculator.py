@@ -172,7 +172,7 @@ class WindowClass(QMainWindow, form_class) :
     def WeaponSubcoreSelect(self) :
         if self.Weapon_Subcore.currentIndex() == constant.SAGITTARIUS :
             self.Weapon_SubcoreLabel.setText(
-                subCoreData["Special"][constant.SAGITTARIUS_WEAPON])
+                subCoreData["Sagittarius"])
         else : 
             self.Weapon_SubcoreLabel.setText(
                 subCoreData["Special"][self.Weapon_Subcore.currentIndex()])
