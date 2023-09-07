@@ -105,12 +105,17 @@ class WindowClass(QMainWindow, form_class) :
         
     @QtCore.pyqtSlot()
     def AccBtnFunction(self) :
+        global accIndex
+        temp = [ constant.ACC, accIndex ]
+        
         # Widget 연결
         self.second = partSelector()
         self.signal.connect(self.second.on_signal_from_main)
-        self.signal.emit(constant.ACC)
+        self.signal.emit(temp)
         self.second.exec() # 두 번째 창이 꺼질 때까지 대기
-        print("Acc Btn")
+        
+        # 두 번째 창에서 값을 전달 받음
+        accIndex = self.second.value
         
     def LegWattReinforce(self) : 
         string = self.Leg_wattReinforce.text()
