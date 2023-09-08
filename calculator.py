@@ -95,19 +95,19 @@ class WindowClass(QMainWindow, form_class) :
         self.Leg_weight.setText("하중 " + str(legData["Weight"][legIndex]))
         self.Leg_speed.setText("속도 " + str(legData["Speed"][legIndex]))
         self.Leg_armor.setText("방어 " + str(legData["Armor"][legIndex]))
-        self.Leg_splash.setText("스플 감소 " + str(legData["SplashReduce"][legIndex]) + "%")
+        self.Leg_splash.setText("스플 감소 " + str(-legData["SplashReduce"][legIndex]) + "%")
         self.Leg_regen.setText("체력 회복 " + str(legData["Regenerate"][legIndex]) + "%")
         self.Leg_sight.setText("시야 " + str(legData["Sight"][legIndex]))
         self.Leg_range.setText("사거리 " + str(legData["Range"][legIndex]))
         self.Leg_cooldown.setText("연사 " + str(legData["Cooldown"][legIndex]))
         
-        hb = int(accData["HealthBonus"][accIndex])
+        hb = int(legData["HealthBonus"][legIndex])
         if hb >= 0 :  
             self.Leg_healthMagnification.setText("체력 +" + str(legData["HealthBonus"][legIndex]) + "%")
         else :
             self.Leg_healthMagnification.setText("체력 " + str(legData["HealthBonus"][legIndex]) + "%")
             
-        db = int(accData["DamageBonus"][accIndex])
+        db = int(legData["DamageBonus"][legIndex])
         if db >= 0 :  
             self.Leg_damageMagnification.setText("공격 +" + str(legData["DamageBonus"][legIndex]) + "%")
         else :
@@ -129,6 +129,26 @@ class WindowClass(QMainWindow, form_class) :
         self.Body_healthBase.setText(str(bodyData["Health"][bodyIndex]))
         self.Body_damageBase.setText(str(bodyData["Damage"][bodyIndex]))
         
+        self.Body_weight.setText("무게 " + str(bodyData["Weight"][bodyIndex]))
+        self.Body_speed.setText("속도 " + str(bodyData["Speed"][bodyIndex]))
+        self.Body_armor.setText("방어 " + str(bodyData["Armor"][bodyIndex]))
+        self.Body_sight.setText("시야 " + str(bodyData["Sight"][bodyIndex]))
+        self.Body_regen.setText("체력 회복 " + str(bodyData["Regenerate"][bodyIndex]) + "%")
+        self.Body_range.setText("사거리 " + str(bodyData["Range"][bodyIndex]))
+        self.Body_cooldown.setText("연사 " + str(bodyData["Cooldown"][bodyIndex]))
+        
+        hb = int(bodyData["HealthBonus"][bodyIndex])
+        if hb >= 0 :  
+            self.Body_healthMagnification.setText("체력 +" + str(bodyData["HealthBonus"][bodyIndex]) + "%")
+        else :
+            self.Body_healthMagnification.setText("체력 " + str(bodyData["HealthBonus"][bodyIndex]) + "%")
+            
+        db = int(bodyData["DamageBonus"][bodyIndex])
+        if db >= 0 :  
+            self.Body_damageMagnification.setText("공격 +" + str(bodyData["DamageBonus"][bodyIndex]) + "%")
+        else :
+            self.Body_damageMagnification.setText("공격 " + str(bodyData["DamageBonus"][bodyIndex]) + "%")
+        
         self.SetBodyReinforceValue()
         
     def WeaponBtnFunction(self) :
@@ -144,6 +164,28 @@ class WindowClass(QMainWindow, form_class) :
         self.Weapon_wattBase.setText(str(weaponData["Watt"][weaponIndex]))
         self.Weapon_healthBase.setText(str(weaponData["Health"][weaponIndex]))
         self.Weapon_damageBase.setText(str(weaponData["Damage"][weaponIndex]))
+        
+        self.Weapon_weight.setText("무게 " + str(weaponData["Weight"][weaponIndex]))
+        self.Weapon_speed.setText("속도 " + str(weaponData["Speed"][weaponIndex]))
+        self.Weapon_armor.setText("방어 " + str(weaponData["Armor"][weaponIndex]))
+        self.Weapon_regen.setText("체력 회복 " + str(weaponData["Regenerate"][weaponIndex]) + "%")
+        self.Weapon_dph.setText("DPH " + str(weaponData["DamagePerHealth"][weaponIndex]) + "%")
+        self.Weapon_sight.setText("시야 " + str(weaponData["Sight"][weaponIndex]))
+        self.Weapon_range.setText("사거리 " + str(weaponData["RangeMinimum"][weaponIndex]) + " - "+ str(weaponData["Range"][weaponIndex]))
+        self.Weapon_cooldown.setText("연사 " + str(weaponData["Cooldown"][weaponIndex]))
+        self.Weapon_splash.setText("범위 " + str(weaponData["Splash"][weaponIndex]))
+        
+        hb = int(weaponData["HealthBonus"][weaponIndex])
+        if hb >= 0 :
+            self.Weapon_healthMagnification.setText("체력 +" + str(weaponData["HealthBonus"][weaponIndex]) + "%")
+        else :
+            self.Weapon_healthMagnification.setText("체력 " + str(weaponData["HealthBonus"][weaponIndex]) + "%")
+            
+        db = int(weaponData["DamageBonus"][weaponIndex])
+        if db >= 0 :
+            self.Weapon_damageMagnification.setText("공격 +" + str(weaponData["DamageBonus"][weaponIndex]) + "%")
+        else :
+            self.Weapon_damageMagnification.setText("공격 " + str(weaponData["DamageBonus"][weaponIndex]) + "%")
         
         self.SetWeaponReinforceValue()
         
@@ -268,7 +310,7 @@ class WindowClass(QMainWindow, form_class) :
         )
         self.Weapon_healthAdd.setText(
             str(utils.getHealthReinforce(weaponData["Watt"][weaponIndex], int(self.Weapon_healthReinforce.text()), False)) 
-            + " / " + str(utils.getHealthBase(weaponData["Watt"][weaponIndex], True))
+            + " / " + str(utils.getHealthBase(weaponData["Watt"][weaponIndex], False))
         )
         self.Weapon_damageAdd.setText(
             str(utils.getDamageReinforce(weaponData["Damage"][weaponIndex], int(self.Weapon_damageReinforce.text()), True))

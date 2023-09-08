@@ -82,7 +82,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>10</y>
+      <y>12</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -92,7 +92,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>150</y>
+      <y>152</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -102,7 +102,7 @@
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>290</y>
+      <y>292</y>
       <width>111</width>
       <height>31</height>
      </rect>
@@ -313,7 +313,7 @@
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>10</y>
+      <y>12</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -332,7 +332,7 @@
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>150</y>
+      <y>152</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -351,7 +351,7 @@
     <property name="geometry">
      <rect>
       <x>320</x>
-      <y>290</y>
+      <y>292</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -931,7 +931,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="armor_2">
+   <widget class="QLabel" name="Body_armor">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -947,7 +947,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="weight_2">
+   <widget class="QLabel" name="Body_weight">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -963,7 +963,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="speed_3">
+   <widget class="QLabel" name="Body_speed">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -979,7 +979,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="range_2">
+   <widget class="QLabel" name="Body_range">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -998,7 +998,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="speed_4">
+   <widget class="QLabel" name="Body_regen">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -1014,7 +1014,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="cooldown_2">
+   <widget class="QLabel" name="Body_cooldown">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -1030,7 +1030,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="damageMagnification_2">
+   <widget class="QLabel" name="Body_damageMagnification">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -1046,7 +1046,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="sight_2">
+   <widget class="QLabel" name="Body_sight">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -1062,7 +1062,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="healthMagnification_2">
+   <widget class="QLabel" name="Body_healthMagnification">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -1078,7 +1078,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="armor_3">
+   <widget class="QLabel" name="Weapon_armor">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -1094,7 +1094,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="weight_3">
+   <widget class="QLabel" name="Weapon_weight">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -1110,7 +1110,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="speed_5">
+   <widget class="QLabel" name="Weapon_speed">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -1126,7 +1126,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="range_3">
+   <widget class="QLabel" name="Weapon_range">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -1145,11 +1145,11 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="speed_6">
+   <widget class="QLabel" name="Weapon_regen">
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>375</y>
+      <y>355</y>
       <width>91</width>
       <height>21</height>
      </rect>
@@ -1161,7 +1161,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="cooldown_3">
+   <widget class="QLabel" name="Weapon_cooldown">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -1177,23 +1177,23 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="damageMagnification_3">
+   <widget class="QLabel" name="Weapon_damageMagnification">
     <property name="geometry">
      <rect>
       <x>560</x>
-      <y>375</y>
+      <y>395</y>
       <width>81</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>공격 0</string>
+     <string>공격 +0%</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="splash_2">
+   <widget class="QLabel" name="Weapon_splash">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -1209,7 +1209,7 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="sight_3">
+   <widget class="QLabel" name="Weapon_sight">
     <property name="geometry">
      <rect>
       <x>560</x>
@@ -1225,17 +1225,17 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="healthMagnification_3">
+   <widget class="QLabel" name="Weapon_healthMagnification">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>355</y>
+      <x>560</x>
+      <y>375</y>
       <width>81</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>체력 0</string>
+     <string>체력 +0%</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
@@ -1436,11 +1436,11 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="damageMagnification_4">
+   <widget class="QLabel" name="Weapon_dph">
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>395</y>
+      <y>375</y>
       <width>81</width>
       <height>21</height>
      </rect>
