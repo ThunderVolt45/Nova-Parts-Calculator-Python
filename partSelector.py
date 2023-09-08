@@ -16,9 +16,6 @@ class partSelector(QDialog, QWidget, form_partSelector):
         # 초기화
         self.value = 0
         
-        # QComboBox 기능 연결
-        self.comboBox.currentIndexChanged.connect(self.selector)
-        
         # QPushButton 기능 연결
         self.select.clicked.connect(self.confirm)
         self.cancel.clicked.connect(self.exit)

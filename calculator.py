@@ -92,6 +92,27 @@ class WindowClass(QMainWindow, form_class) :
         self.Leg_healthBase.setText(str(legData["Health"][legIndex]))
         self.Leg_damageBase.setText(str(legData["Damage"][legIndex]))
         
+        self.Leg_weight.setText("하중 " + str(legData["Weight"][legIndex]))
+        self.Leg_speed.setText("속도 " + str(legData["Speed"][legIndex]))
+        self.Leg_armor.setText("방어 " + str(legData["Armor"][legIndex]))
+        self.Leg_splash.setText("스플 감소 " + str(legData["SplashReduce"][legIndex]) + "%")
+        self.Leg_regen.setText("체력 회복 " + str(legData["Regenerate"][legIndex]) + "%")
+        self.Leg_sight.setText("시야 " + str(legData["Sight"][legIndex]))
+        self.Leg_range.setText("사거리 " + str(legData["Range"][legIndex]))
+        self.Leg_cooldown.setText("연사 " + str(legData["Cooldown"][legIndex]))
+        
+        hb = int(accData["HealthBonus"][accIndex])
+        if hb >= 0 :  
+            self.Leg_healthMagnification.setText("체력 +" + str(legData["HealthBonus"][legIndex]) + "%")
+        else :
+            self.Leg_healthMagnification.setText("체력 " + str(legData["HealthBonus"][legIndex]) + "%")
+            
+        db = int(accData["DamageBonus"][accIndex])
+        if db >= 0 :  
+            self.Leg_damageMagnification.setText("공격 +" + str(legData["DamageBonus"][legIndex]) + "%")
+        else :
+            self.Leg_damageMagnification.setText("공격 " + str(legData["DamageBonus"][legIndex]) + "%")
+        
         self.SetLegReinforceValue()
         
     def BodyBtnFunction(self) :
