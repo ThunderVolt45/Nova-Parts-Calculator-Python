@@ -86,7 +86,13 @@ class WindowClass(QMainWindow, form_class) :
         
         # 두 번째 창에서 값을 전달 받음
         legIndex = self.second.value
+        
         self.LegBtn.setText(legData["Name"][legIndex])
+        self.Leg_wattBase.setText(str(legData["Watt"][legIndex]))
+        self.Leg_healthBase.setText(str(legData["Health"][legIndex]))
+        self.Leg_damageBase.setText(str(legData["Damage"][legIndex]))
+        
+        self.SetLegReinforceValue()
         
     def BodyBtnFunction(self) :
         global bodyIndex
@@ -96,7 +102,13 @@ class WindowClass(QMainWindow, form_class) :
         
         # 두 번째 창에서 값을 전달 받음
         bodyIndex = self.second.value
+        
         self.BodyBtn.setText(bodyData["Name"][bodyIndex])
+        self.Body_wattBase.setText(str(bodyData["Watt"][bodyIndex]))
+        self.Body_healthBase.setText(str(bodyData["Health"][bodyIndex]))
+        self.Body_damageBase.setText(str(bodyData["Damage"][bodyIndex]))
+        
+        self.SetBodyReinforceValue()
         
     def WeaponBtnFunction(self) :
         global weaponIndex
@@ -106,7 +118,13 @@ class WindowClass(QMainWindow, form_class) :
         
         # 두 번째 창에서 값을 전달 받음
         weaponIndex = self.second.value
+        
         self.WeaponBtn.setText(weaponData["Name"][weaponIndex])
+        self.Weapon_wattBase.setText(str(weaponData["Watt"][weaponIndex]))
+        self.Weapon_healthBase.setText(str(weaponData["Health"][weaponIndex]))
+        self.Weapon_damageBase.setText(str(weaponData["Damage"][weaponIndex]))
+        
+        self.SetWeaponReinforceValue()
         
     def AccBtnFunction(self) :
         global accIndex
@@ -116,7 +134,31 @@ class WindowClass(QMainWindow, form_class) :
         
         # 두 번째 창에서 값을 전달 받음
         accIndex = self.second.value
+        
         self.AccBtn.setText(accData["Name"][accIndex])
+        self.Acc_weight.setText("무게 " + str(accData["Weight"][accIndex]))
+        self.Acc_watt.setText("와트 " + str(accData["Watt"][accIndex]))
+        self.Acc_health.setText("체력 " + str(accData["Health"][accIndex]))
+        self.Acc_damage.setText("공격 " + str(accData["Damage"][accIndex]))
+        self.Acc_armor.setText("방어 " + str(accData["Armor"][accIndex]))
+        self.Acc_sight.setText("시야 " + str(accData["Sight"][accIndex]))
+        self.Acc_range.setText("사거리 " + str(accData["Range"][accIndex]))
+        self.Acc_cooldown.setText("연사 " + str(accData["Cooldown"][accIndex]))
+        self.Acc_speed.setText("속도 " + str(accData["Speed"][accIndex]))
+        
+        hb = int(accData["HealthBonus"][accIndex])
+        if hb >= 0 :
+            self.Acc_healthMagnification.setText("체력 +" + str(hb) + "%")
+        else :
+            self.Acc_healthMagnification.setText("체력 " + str(hb) + "%")
+            
+        ab = int(accData["DamageBonus"][accIndex])
+        if ab >= 0 :
+            self.Acc_damageMagnification.setText("공격 +" + str(ab) + "%")
+        else :
+            self.Acc_damageMagnification.setText("공격 " + str(ab) + "%")
+            
+        self.Acc_regen.setText("체력 회복 " + str(accData["Regenerate"][accIndex]) + "%")
         
     @QtCore.pyqtSlot()
     def BtnFunction(self, list) : # Widget 연결
@@ -128,38 +170,89 @@ class WindowClass(QMainWindow, form_class) :
     def LegWattReinforce(self) : 
         string = self.Leg_wattReinforce.text()
         self.Leg_wattReinforce.setText(utils.lineEditToNum(string))
+        self.SetLegReinforceValue()
         
     def LegHealthReinforce(self) : 
         string = self.Leg_healthReinforce.text()
         self.Leg_healthReinforce.setText(utils.lineEditToNum(string))
+        self.SetLegReinforceValue()
         
     def LegDamageReinforce(self) : 
         string = self.Leg_damageReinforce.text()
         self.Leg_damageReinforce.setText(utils.lineEditToNum(string))
+        self.SetLegReinforceValue()
         
     def BodyWattReinforce(self) : 
         string = self.Body_wattReinforce.text()
         self.Body_wattReinforce.setText(utils.lineEditToNum(string))
+        self.SetBodyReinforceValue()
         
     def BodyHealthReinforce(self) : 
         string = self.Body_healthReinforce.text()
         self.Body_healthReinforce.setText(utils.lineEditToNum(string))
+        self.SetBodyReinforceValue()
         
     def BodyDamageReinforce(self) : 
         string = self.Body_damageReinforce.text()
         self.Body_damageReinforce.setText(utils.lineEditToNum(string))
+        self.SetBodyReinforceValue()
         
     def WeaponWattReinforce(self) : 
         string = self.Weapon_wattReinforce.text()
         self.Weapon_wattReinforce.setText(utils.lineEditToNum(string))
+        self.SetWeaponReinforceValue()
         
     def WeaponHealthReinforce(self) : 
         string = self.Weapon_healthReinforce.text()
         self.Weapon_healthReinforce.setText(utils.lineEditToNum(string))
+        self.SetWeaponReinforceValue()
         
     def WeaponDamageReinforce(self) : 
         string = self.Weapon_damageReinforce.text()
         self.Weapon_damageReinforce.setText(utils.lineEditToNum(string))
+        self.SetWeaponReinforceValue()
+        
+    def SetLegReinforceValue(self) :
+        self.Leg_wattAdd.setText(
+            str(utils.getWattReinforce(legData["Watt"][legIndex], int(self.Leg_wattReinforce.text()))) 
+            + " / " + str(utils.getWattBase(legData["Watt"][legIndex]))
+        )
+        self.Leg_healthAdd.setText(
+            str(utils.getHealthReinforce(legData["Watt"][legIndex], int(self.Leg_healthReinforce.text()), False)) 
+            + " / " + str(utils.getHealthBase(legData["Watt"][legIndex], False))
+        )
+        self.Leg_damageAdd.setText(
+            str(utils.getDamageReinforce(legData["Watt"][legIndex], int(self.Leg_damageReinforce.text()), False))
+            + " / " + str(utils.getDamageBase(legData["Watt"][legIndex], False))
+        )
+    
+    def SetBodyReinforceValue(self) :
+        self.Body_wattAdd.setText(
+            str(utils.getWattReinforce(bodyData["Watt"][bodyIndex], int(self.Body_wattReinforce.text()))) 
+            + " / " + str(utils.getWattBase(bodyData["Watt"][bodyIndex]))
+        )
+        self.Body_healthAdd.setText(
+            str(utils.getHealthReinforce(bodyData["Health"][bodyIndex], int(self.Body_healthReinforce.text()), True)) 
+            + " / " + str(utils.getHealthBase(bodyData["Health"][bodyIndex], True))
+        )
+        self.Body_damageAdd.setText(
+            str(utils.getDamageReinforce(bodyData["Watt"][bodyIndex], int(self.Body_damageReinforce.text()), False))
+            + " / " + str(utils.getDamageBase(bodyData["Watt"][bodyIndex], False))
+        )
+        
+    def SetWeaponReinforceValue(self) :
+        self.Weapon_wattAdd.setText(
+            str(utils.getWattReinforce(weaponData["Watt"][weaponIndex], int(self.Weapon_wattReinforce.text()))) 
+            + " / " + str(utils.getWattBase(weaponData["Watt"][weaponIndex]))
+        )
+        self.Weapon_healthAdd.setText(
+            str(utils.getHealthReinforce(weaponData["Watt"][weaponIndex], int(self.Weapon_healthReinforce.text()), False)) 
+            + " / " + str(utils.getHealthBase(weaponData["Watt"][weaponIndex], True))
+        )
+        self.Weapon_damageAdd.setText(
+            str(utils.getDamageReinforce(weaponData["Damage"][weaponIndex], int(self.Weapon_damageReinforce.text()), True))
+            + " / " + str(utils.getDamageBase(weaponData["Damage"][weaponIndex], True))
+        )
         
     def LegSubcoreSelect(self) :
         self.Leg_SubcoreLabel.setText(

@@ -137,7 +137,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -153,7 +153,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>false</bool>
@@ -169,7 +169,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>- 100 / 100</string>
+     <string>0 / 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
@@ -188,7 +188,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -220,7 +220,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>- 100 / 100</string>
+     <string>0 / 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
@@ -236,7 +236,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>false</bool>
@@ -255,7 +255,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -287,7 +287,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>- 100 / 100</string>
+     <string>0 / 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
@@ -303,7 +303,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>false</bool>
@@ -379,7 +379,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -411,7 +411,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>- 100 / 100</string>
+     <string>0 / 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
@@ -427,7 +427,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>false</bool>
@@ -446,7 +446,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -478,7 +478,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>- 100 / 100</string>
+     <string>0 / 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
@@ -494,7 +494,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>false</bool>
@@ -574,7 +574,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>- 100 / 100</string>
+     <string>0 / 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
@@ -593,7 +593,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -609,7 +609,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>false</bool>
@@ -628,7 +628,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -644,7 +644,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>- 100 / 100</string>
+     <string>0 / 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
@@ -660,7 +660,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>false</bool>
@@ -676,7 +676,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>- 100 / 100</string>
+     <string>0 / 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
@@ -695,7 +695,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -711,7 +711,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>false</bool>
@@ -730,7 +730,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>true</bool>
@@ -746,7 +746,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>- 100 / 100</string>
+     <string>0 / 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
@@ -762,7 +762,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>123</string>
+     <string>0</string>
     </property>
     <property name="readOnly">
      <bool>false</bool>
@@ -1241,92 +1241,92 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="weight_4">
+   <widget class="QLabel" name="Acc_weight">
     <property name="geometry">
      <rect>
       <x>200</x>
       <y>440</y>
-      <width>31</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>무게</string>
+     <string>무게 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="watt_4">
+   <widget class="QLabel" name="Acc_watt">
     <property name="geometry">
      <rect>
       <x>200</x>
       <y>460</y>
-      <width>31</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>와트</string>
+     <string>와트 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="health_4">
+   <widget class="QLabel" name="Acc_health">
     <property name="geometry">
      <rect>
       <x>200</x>
       <y>480</y>
-      <width>31</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>체력</string>
+     <string>체력 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="damage_4">
+   <widget class="QLabel" name="Acc_damage">
     <property name="geometry">
      <rect>
       <x>200</x>
       <y>500</y>
-      <width>31</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>공격</string>
+     <string>공격 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="cooldown_4">
+   <widget class="QLabel" name="Acc_cooldown">
     <property name="geometry">
      <rect>
       <x>300</x>
       <y>480</y>
-      <width>31</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>연사</string>
+     <string>연사 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="range_4">
+   <widget class="QLabel" name="Acc_range">
     <property name="geometry">
      <rect>
       <x>300</x>
       <y>460</y>
-      <width>41</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
@@ -1334,103 +1334,103 @@
      <enum>QFrame::Plain</enum>
     </property>
     <property name="text">
-     <string>사거리</string>
+     <string>사거리 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="sight_4">
+   <widget class="QLabel" name="Acc_sight">
     <property name="geometry">
      <rect>
       <x>300</x>
       <y>440</y>
-      <width>31</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>시야</string>
+     <string>시야 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="healthMagnification_4">
+   <widget class="QLabel" name="Acc_healthMagnification">
     <property name="geometry">
      <rect>
       <x>400</x>
       <y>440</y>
-      <width>31</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>체력</string>
+     <string>체력 +0%</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="damageMagnification_4">
+   <widget class="QLabel" name="Acc_damageMagnification">
     <property name="geometry">
      <rect>
       <x>400</x>
       <y>460</y>
-      <width>31</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>공격</string>
+     <string>공격 +0%</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="speed_7">
+   <widget class="QLabel" name="Acc_regen">
     <property name="geometry">
      <rect>
       <x>400</x>
       <y>480</y>
-      <width>61</width>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>체력 회복</string>
+     <string>체력 회복 0%</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="speed_8">
+   <widget class="QLabel" name="Acc_speed">
     <property name="geometry">
      <rect>
       <x>300</x>
       <y>500</y>
-      <width>31</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>속도</string>
+     <string>속도 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
-   <widget class="QLabel" name="armor_4">
+   <widget class="QLabel" name="Acc_armor">
     <property name="geometry">
      <rect>
       <x>200</x>
       <y>520</y>
-      <width>31</width>
+      <width>71</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>방어</string>
+     <string>방어 0</string>
     </property>
     <property name="buddy">
      <cstring>Leg_wattBase</cstring>
