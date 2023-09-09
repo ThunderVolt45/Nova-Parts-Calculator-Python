@@ -54,6 +54,7 @@ class WindowClass(QMainWindow, form_class) :
         self.BodyBtn.clicked.connect(self.BodyBtnFunction)
         self.WeaponBtn.clicked.connect(self.WeaponBtnFunction)
         self.AccBtn.clicked.connect(self.AccBtnFunction)
+        self.Assemble_btn.clicked.connect(self.Assemble)
         
         # QLineEdit 기능 연결
         self.Leg_wattReinforce.textChanged.connect(self.LegWattReinforce)
@@ -171,9 +172,14 @@ class WindowClass(QMainWindow, form_class) :
         self.Weapon_regen.setText("체력 회복 " + str(weaponData["Regenerate"][weaponIndex]) + "%")
         self.Weapon_dph.setText("DPH " + str(weaponData["DamagePerHealth"][weaponIndex]) + "%")
         self.Weapon_sight.setText("시야 " + str(weaponData["Sight"][weaponIndex]))
-        self.Weapon_range.setText("사거리 " + str(weaponData["RangeMinimum"][weaponIndex]) + " - "+ str(weaponData["Range"][weaponIndex]))
         self.Weapon_cooldown.setText("연사 " + str(weaponData["Cooldown"][weaponIndex]))
         self.Weapon_splash.setText("범위 " + str(weaponData["Splash"][weaponIndex]))
+        
+        rm = int(weaponData["RangeMinimum"][weaponIndex])
+        if rm != 0 :
+            self.Weapon_range.setText("사거리 " + str(weaponData["RangeMinimum"][weaponIndex]) + " - "+ str(weaponData["Range"][weaponIndex]))
+        else :
+            self.Weapon_range.setText("사거리 " + str(weaponData["Range"][weaponIndex]))
         
         hb = int(weaponData["HealthBonus"][weaponIndex])
         if hb >= 0 :
@@ -332,6 +338,208 @@ class WindowClass(QMainWindow, form_class) :
         else : 
             self.Weapon_SubcoreLabel.setText(
                 subCoreData["Special"][self.Weapon_Subcore.currentIndex()])
+            
+    def Assemble(self) :
+        # 하중 계산
+        weight = 0
+        load = legData["Weight"][legIndex]
+        
+        weight += bodyData["Weight"][bodyIndex]
+        weight += weaponData["Weight"][weaponIndex]
+        weight += accData["Weight"][accIndex]
+        
+        if weight > load :
+            self.Assemble_weight.setStyleSheet("QLineEdit"
+                                               "{"
+                                               "border : 2px solid rgb(255, 0, 0);"
+                                               "color : rgb(255, 0, 0)"
+                                               "}")
+            self.Assemble_label.setText("하중 초과")
+        else :
+            self.Assemble_weight.setStyleSheet("QLineEdit"
+                                               "{"
+                                               "border : default;"
+                                               "color : default"
+                                               "}")
+        
+        self.Assemble_weight.setText(str(weight) + " / " + str(load))
+        
+        # 와트 계산
+        watt = 0
+        
+        watt += legData["Watt"][legIndex]
+        watt += bodyData["Watt"][bodyIndex]
+        watt += weaponData["Watt"][weaponIndex]
+        watt += accData["Watt"][accIndex]
+        watt += subCoreData["Watt"][self.Leg_Subcore.currentIndex()]
+        watt += subCoreData["Watt"][self.Body_Subcore.currentIndex()]
+        watt += subCoreData["Watt"][self.Weapon_Subcore.currentIndex()]
+        watt -= utils.getWattReinforce(legData["Watt"][legIndex], int(self.Leg_wattReinforce.text()))
+        watt -= utils.getWattReinforce(bodyData["Watt"][bodyIndex], int(self.Body_wattReinforce.text()))
+        watt -= utils.getWattReinforce(weaponData["Watt"][weaponIndex], int(self.Weapon_wattReinforce.text()))
+        
+        magnification = 0
+        magnification += subCoreData["WattBonus"][self.Leg_Subcore.currentIndex()]
+        magnification += subCoreData["WattBonus"][self.Body_Subcore.currentIndex()]
+        magnification += subCoreData["WattBonus"][self.Weapon_Subcore.currentIndex()]
+        
+        watt *= 1 + magnification / 100
+        
+        self.Assemble_watt.setText(str(int(watt)))
+        
+        # 체력 계산
+        health = 0
+        
+        health += legData["Health"][legIndex]
+        health += bodyData["Health"][bodyIndex]
+        health += weaponData["Health"][weaponIndex]
+        health += accData["Health"][accIndex]
+        health += subCoreData["Health"][self.Leg_Subcore.currentIndex()]
+        health += subCoreData["Health"][self.Body_Subcore.currentIndex()]
+        health += subCoreData["Health"][self.Weapon_Subcore.currentIndex()]
+        health += utils.getHealthReinforce(legData["Health"][legIndex], int(self.Leg_healthReinforce.text()), False)
+        health += utils.getHealthReinforce(bodyData["Health"][bodyIndex], int(self.Body_healthReinforce.text()), True)
+        health += utils.getHealthReinforce(weaponData["Health"][weaponIndex], int(self.Weapon_healthReinforce.text()), False)
+        
+        magnification = 0
+        magnification += legData["HealthBonus"][legIndex]
+        magnification += bodyData["HealthBonus"][bodyIndex]
+        magnification += weaponData["HealthBonus"][weaponIndex]
+        magnification += accData["HealthBonus"][accIndex]
+        
+        health *= 1 + magnification / 100
+        
+        self.Assemble_health.setText(str(int(health)))
+        
+        # 리젠 계산
+        regen = 0
+        
+        regen += legData["Regenerate"][legIndex]
+        regen += bodyData["Regenerate"][bodyIndex]
+        regen += weaponData["Regenerate"][weaponIndex]
+        regen += accData["Regenerate"][accIndex]
+        regen += subCoreData["Regenerate"][self.Leg_Subcore.currentIndex()]
+        regen += subCoreData["Regenerate"][self.Body_Subcore.currentIndex()]
+        regen += subCoreData["Regenerate"][self.Weapon_Subcore.currentIndex()]
+        
+        self.Assemble_regen.setText(str(int(regen)) + "%")
+        
+        # 속도 계산
+        speed = 0
+        
+        speed += legData["Speed"][legIndex]
+        speed += bodyData["Speed"][bodyIndex]
+        speed += weaponData["Speed"][weaponIndex]
+        speed += accData["Speed"][accIndex]
+        speed += subCoreData["Speed"][self.Leg_Subcore.currentIndex()]
+        speed += subCoreData["Speed"][self.Body_Subcore.currentIndex()]
+        speed += subCoreData["Speed"][self.Weapon_Subcore.currentIndex()]
+        
+        self.Assemble_speed.setText(str(int(speed)))
+        
+        # 연사 계산
+        cooldown = 0
+        
+        cooldown += legData["Cooldown"][legIndex]
+        cooldown += bodyData["Cooldown"][bodyIndex]
+        cooldown += weaponData["Cooldown"][weaponIndex]
+        cooldown += accData["Cooldown"][accIndex]
+        cooldown += subCoreData["Cooldown"][self.Leg_Subcore.currentIndex()]
+        cooldown += subCoreData["Cooldown"][self.Body_Subcore.currentIndex()]
+        cooldown += subCoreData["Cooldown"][self.Weapon_Subcore.currentIndex()]
+        
+        if cooldown < 50 :
+            cooldown = 50
+            
+        self.Assemble_cooldown.setText(str(int(cooldown)))
+        
+        # 사거리 계산
+        range = 0
+        
+        range += legData["Range"][legIndex]
+        range += bodyData["Range"][bodyIndex]
+        range += weaponData["Range"][weaponIndex]
+        range += accData["Range"][accIndex]
+        range += subCoreData["Range"][self.Leg_Subcore.currentIndex()]
+        range += subCoreData["Range"][self.Body_Subcore.currentIndex()]
+        range += subCoreData["Range"][self.Weapon_Subcore.currentIndex()]
+        
+        if weaponData["RangeMinimum"][weaponIndex] != 0 :
+            self.Assemble_range.setText(str(weaponData["RangeMinimum"][weaponIndex]) + " - " + str(int(range)))
+        else :
+            self.Assemble_range.setText(str(int(range)))
+            
+        # 범위 계산
+        splash = 0
+        
+        splash += legData["Splash"][legIndex]
+        splash += bodyData["Splash"][bodyIndex]
+        splash += weaponData["Splash"][weaponIndex]
+        splash += accData["Splash"][accIndex]
+        splash += subCoreData["Splash"][self.Leg_Subcore.currentIndex()]
+        splash += subCoreData["Splash"][self.Body_Subcore.currentIndex()]
+        splash += subCoreData["Splash"][self.Weapon_Subcore.currentIndex()]
+        
+        if weaponData["Splash"][weaponIndex] == 0 :
+            self.Assemble_splash.setText("없음")
+        else :
+            self.Assemble_splash.setText(str(int(splash)))
+            
+        # 시야 계산
+        sight = 0
+        
+        sight += legData["Sight"][legIndex]
+        sight += bodyData["Sight"][bodyIndex]
+        sight += weaponData["Sight"][weaponIndex]
+        sight += accData["Sight"][accIndex]
+        sight += subCoreData["Sight"][self.Leg_Subcore.currentIndex()]
+        sight += subCoreData["Sight"][self.Body_Subcore.currentIndex()]
+        sight += subCoreData["Sight"][self.Weapon_Subcore.currentIndex()]
+        
+        if sight > 30 : sight = 30
+        
+        self.Assemble_sight.setText(str(int(sight)))
+        
+        # 공격 계산
+        damage = 0
+        
+        damage += legData["Damage"][legIndex]
+        damage += bodyData["Damage"][bodyIndex]
+        damage += weaponData["Damage"][weaponIndex]
+        damage += accData["Damage"][accIndex]
+        damage += subCoreData["Damage"][self.Leg_Subcore.currentIndex()]
+        damage += subCoreData["Damage"][self.Body_Subcore.currentIndex()]
+        damage += subCoreData["Damage"][self.Weapon_Subcore.currentIndex()]
+        damage += utils.getDamageReinforce(legData["Damage"][legIndex], int(self.Leg_damageReinforce.text()), False)
+        damage += utils.getDamageReinforce(bodyData["Damage"][bodyIndex], int(self.Body_damageReinforce.text()), False)
+        damage += utils.getDamageReinforce(weaponData["Damage"][weaponIndex], int(self.Weapon_damageReinforce.text()), True)
+        
+        magnification = 0
+        magnification += legData["DamageBonus"][legIndex]
+        magnification += bodyData["DamageBonus"][bodyIndex]
+        magnification += weaponData["DamageBonus"][weaponIndex]
+        magnification += accData["DamageBonus"][accIndex]
+        
+        damage *= 1 + magnification / 100
+        
+        self.Assemble_damage.setText(str(int(damage)))
+        
+        # 체력 비례 데미지 계산
+        dph = 0
+        
+        dph += legData["DamagePerHealth"][legIndex]
+        dph += bodyData["DamagePerHealth"][bodyIndex]
+        dph += weaponData["DamagePerHealth"][weaponIndex]
+        dph += accData["DamagePerHealth"][accIndex]
+        dph += subCoreData["DamagePerHealth"][self.Leg_Subcore.currentIndex()]
+        dph += subCoreData["DamagePerHealth"][self.Body_Subcore.currentIndex()]
+        dph += subCoreData["DamagePerHealth"][self.Weapon_Subcore.currentIndex()]
+        
+        if dph != 0 :
+            self.Assemble_dph.setText(str(int(dph)) + "%")
+        else :
+            self.Assemble_dph.setText("없음")
+        
 
 if __name__ == "__main__" :
     # QApplication : 프로그램을 실행시켜주는 클래스
