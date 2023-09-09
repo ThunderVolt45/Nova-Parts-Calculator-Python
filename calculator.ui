@@ -1468,9 +1468,9 @@
    <widget class="QLabel" name="Assemble_label">
     <property name="geometry">
      <rect>
-      <x>665</x>
+      <x>625</x>
       <y>20</y>
-      <width>91</width>
+      <width>131</width>
       <height>21</height>
      </rect>
     </property>

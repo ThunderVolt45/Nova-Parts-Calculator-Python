@@ -348,20 +348,6 @@ class WindowClass(QMainWindow, form_class) :
         weight += weaponData["Weight"][weaponIndex]
         weight += accData["Weight"][accIndex]
         
-        if weight > load :
-            self.Assemble_weight.setStyleSheet("QLineEdit"
-                                               "{"
-                                               "border : 2px solid rgb(255, 0, 0);"
-                                               "color : rgb(255, 0, 0)"
-                                               "}")
-            self.Assemble_label.setText("하중 초과")
-        else :
-            self.Assemble_weight.setStyleSheet("QLineEdit"
-                                               "{"
-                                               "border : default;"
-                                               "color : default"
-                                               "}")
-        
         self.Assemble_weight.setText(str(weight) + " / " + str(load))
         
         # 와트 계산
@@ -539,6 +525,162 @@ class WindowClass(QMainWindow, form_class) :
             self.Assemble_dph.setText(str(int(dph)) + "%")
         else :
             self.Assemble_dph.setText("없음")
+            
+        # 방어 무시 계산
+        pierce = 0
+        
+        pierce += legData["Pierce"][legIndex]
+        pierce += bodyData["Pierce"][bodyIndex]
+        pierce += weaponData["Pierce"][weaponIndex]
+        pierce += accData["Pierce"][accIndex]
+        pierce += subCoreData["Pierce"][self.Leg_Subcore.currentIndex()]
+        pierce += subCoreData["Pierce"][self.Body_Subcore.currentIndex()]
+        pierce += subCoreData["Pierce"][self.Weapon_Subcore.currentIndex()]
+        
+        self.Assemble_pierce.setText(str(int(pierce)))
+        
+        # 방어 계산
+        armor = 0
+        
+        armor += legData["Armor"][legIndex]
+        armor += bodyData["Armor"][bodyIndex]
+        armor += weaponData["Armor"][weaponIndex]
+        armor += accData["Armor"][accIndex]
+        armor += subCoreData["Armor"][self.Leg_Subcore.currentIndex()]
+        armor += subCoreData["Armor"][self.Body_Subcore.currentIndex()]
+        armor += subCoreData["Armor"][self.Weapon_Subcore.currentIndex()]
+        
+        # 기타 특수 능력 정보 표시
+        string = ""
+        
+        if legData["Special"][legIndex] :
+            string += legData["Special"][legIndex] + "\n"
+            
+        if bodyData["Special"][bodyIndex] :
+            string += bodyData["Special"][bodyIndex] + "\n"
+            
+        if weaponData["Special"][weaponIndex] :
+            string += weaponData["Special"][weaponIndex] + "\n"
+            
+        if accData["Special"][accIndex] :
+            string += accData["Special"][accIndex] + "\n"
+        
+        self.Assemble_etc.setPlainText(string)
+        
+        # 조립 유효성 검사
+        self.AssembleValidate(weight, load)
+        
+    def AssembleValidate(self, weight: int, load: int) :
+        # styleSheet 초기화
+        self.LegBtn.setStyleSheet("")
+        self.BodyBtn.setStyleSheet("")
+        self.WeaponBtn.setStyleSheet("")
+        self.AccBtn.setStyleSheet("")
+        self.Assemble_weight.setStyleSheet("")
+        
+        # 형태 불일치
+        if bodyData["Type"][bodyIndex] != weaponData["Type"][weaponIndex] :
+            self.BodyBtn.setStyleSheet("QPushButton"
+                                       "{"
+                                       "border : 2px solid red;"
+                                       "background : white;"
+                                       "color : red"
+                                       "}")
+            self.WeaponBtn.setStyleSheet("QPushButton"
+                                       "{"
+                                       "border : 2px solid red;"
+                                       "background : white;"
+                                       "color : red"
+                                       "}")
+        
+        # 하중 초과
+        if weight > load :
+            self.LegBtn.setStyleSheet("QPushButton"
+                                          "{"
+                                          "border : 2px solid red;"
+                                          "background : white;"
+                                          "color : red"
+                                          "}")
+            self.Assemble_weight.setStyleSheet("QLineEdit"
+                                               "{"
+                                               "border : 2px solid rgb(255, 0, 0);"
+                                               "color : rgb(255, 0, 0)"
+                                               "}")
+        
+        # N템 개수 초과
+        if legData["N"][legIndex] + bodyData["N"][bodyIndex] + weaponData["N"][weaponIndex] > 1 :
+            if legData["N"][legIndex] :
+                self.LegBtn.setStyleSheet("QPushButton"
+                                          "{"
+                                          "border : 2px solid red;"
+                                          "background : white;"
+                                          "color : red"
+                                          "}")
+            if bodyData["N"][bodyIndex] :
+                self.BodyBtn.setStyleSheet("QPushButton"
+                                          "{"
+                                          "border : 2px solid red;"
+                                          "background : white;"
+                                          "color : red"
+                                          "}")
+            if weaponData["N"][weaponIndex] :
+                self.WeaponBtn.setStyleSheet("QPushButton"
+                                          "{"
+                                          "border : 2px solid red;"
+                                          "background : white;"
+                                          "color : red"
+                                          "}")
+                
+        # 아포칼립스
+        if weaponIndex == 60 :
+            if bodyData["Weight"][bodyIndex] < 30 :
+                self.BodyBtn.setStyleSheet("QPushButton"
+                                          "{"
+                                          "border : 2px solid red;"
+                                          "background : white;"
+                                          "color : red"
+                                          "}")
+            if "타워링" in accData["Name"][accIndex] :
+                self.AccBtn.setStyleSheet("QPushButton"
+                                          "{"
+                                          "border : 2px solid red;"
+                                          "background : white;"
+                                          "color : red"
+                                          "}")
+        
+        # 부품 없음
+        if legIndex == 0 or bodyIndex == 0 or weaponIndex == 0 :
+            self.Assemble_label.setText("부품 없음")
+        
+        # 형태 불일치
+        elif bodyData["Type"][bodyIndex] != weaponData["Type"][weaponIndex] :
+            self.Assemble_label.setText("형태 불일치")
+            
+        # 하중 초과
+        elif weight > load :
+            self.Assemble_label.setText("하중 초과")
+            
+        # N템 개수 초과
+        elif legData["N"][legIndex] + bodyData["N"][bodyIndex] + weaponData["N"][weaponIndex] > 1 :
+            self.Assemble_label.setText("N템 개수 초과")
+            
+        # 아포칼립스
+        elif weaponIndex == 60 :
+            if bodyData["Weight"][bodyIndex] < 30 :
+                self.Assemble_label.setText("무게 30 이상 몸통 필요")
+            elif "타워링" in accData["Name"][accIndex] :
+                self.Assemble_label.setText("타워링과 조립 불가")
+        
+        # 조립 완료
+        else :
+            self.LegBtn.setStyleSheet("")
+            self.BodyBtn.setStyleSheet("")
+            self.WeaponBtn.setStyleSheet("")
+            self.AccBtn.setStyleSheet("")
+            self.Assemble_weight.setStyleSheet("")
+            self.Assemble_label.setText("조립 완료")
+        
+        
         
 
 if __name__ == "__main__" :
