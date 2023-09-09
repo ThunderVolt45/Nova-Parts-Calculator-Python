@@ -578,8 +578,33 @@ class WindowClass(QMainWindow, form_class) :
         self.AccBtn.setStyleSheet("")
         self.Assemble_weight.setStyleSheet("")
         
+        # 부품 없음
+        if legIndex == 0 :
+            self.LegBtn.setStyleSheet("QPushButton"
+                                      "{"
+                                      "border : 2px solid red;"
+                                      "background : white;"
+                                      "color : red"
+                                      "}")
+        
+        if bodyIndex == 0 :
+            self.BodyBtn.setStyleSheet("QPushButton"
+                                       "{"
+                                       "border : 2px solid red;"
+                                       "background : white;"
+                                       "color : red"
+                                       "}")
+            
+        if weaponIndex == 0 :
+            self.WeaponBtn.setStyleSheet("QPushButton"
+                                       "{"
+                                       "border : 2px solid red;"
+                                       "background : white;"
+                                       "color : red"
+                                       "}")
+        
         # 형태 불일치
-        if bodyData["Type"][bodyIndex] != weaponData["Type"][weaponIndex] :
+        if bodyIndex != 0 and weaponIndex != 0 and bodyData["Type"][bodyIndex] != weaponData["Type"][weaponIndex] :
             self.BodyBtn.setStyleSheet("QPushButton"
                                        "{"
                                        "border : 2px solid red;"
@@ -665,11 +690,10 @@ class WindowClass(QMainWindow, form_class) :
             self.Assemble_label.setText("N템 개수 초과")
             
         # 아포칼립스
-        elif weaponIndex == 60 :
-            if bodyData["Weight"][bodyIndex] < 30 :
-                self.Assemble_label.setText("무게 30 이상 몸통 필요")
-            elif "타워링" in accData["Name"][accIndex] :
-                self.Assemble_label.setText("타워링과 조립 불가")
+        elif weaponIndex == 60 and bodyData["Weight"][bodyIndex] < 30 :
+            self.Assemble_label.setText("무게 30 이상 몸통 필요")
+        elif weaponIndex == 60 and "타워링" in accData["Name"][accIndex] :
+            self.Assemble_label.setText("타워링과 조립 불가")
         
         # 조립 완료
         else :
