@@ -1,3 +1,4 @@
+import os
 import sys
 import json
 import utils
@@ -6,9 +7,17 @@ from PyQt5.QtWidgets import *
 from PyQt5 import uic, QtCore
 from partSelector import partSelector
 
+###############################################################
 # UI파일 연결
 # 단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
-form_class = uic.loadUiType("calculator.ui")[0]
+def resource_path(relativePath):
+    # Get absolute path to resource, works for dev and for PyInstaller
+    basePath = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(basePath, relativePath)
+
+form = resource_path("calculator.ui")
+form_class = uic.loadUiType(form)[0]
+###############################################################
 
 global legIndex
 global bodyIndex

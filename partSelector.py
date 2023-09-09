@@ -1,12 +1,21 @@
+import os
 import sys
 import json
 import constant
 from PyQt5.QtWidgets import *
 from PyQt5 import uic, QtCore
 
+###############################################################
 # UI파일 연결
 # 단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
-form_partSelector = uic.loadUiType("partSelector.ui")[0]
+def resource_path(relativePath):
+    # Get absolute path to resource, works for dev and for PyInstaller
+    basePath = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(basePath, relativePath)
+
+form = resource_path("partSelector.ui")
+form_partSelector = uic.loadUiType(form)[0]
+###############################################################
 
 class partSelector(QDialog, QWidget, form_partSelector):
     def __init__(self) :
