@@ -392,9 +392,9 @@ class WindowClass(QMainWindow, form_class) :
         health += subCoreData["Health"][self.Leg_Subcore.currentIndex()]
         health += subCoreData["Health"][self.Body_Subcore.currentIndex()]
         health += subCoreData["Health"][self.Weapon_Subcore.currentIndex()]
-        health += utils.getHealthReinforce(legData["Health"][legIndex], int(self.Leg_healthReinforce.text()), False)
+        health += utils.getHealthReinforce(legData["Watt"][legIndex], int(self.Leg_healthReinforce.text()), False)
         health += utils.getHealthReinforce(bodyData["Health"][bodyIndex], int(self.Body_healthReinforce.text()), True)
-        health += utils.getHealthReinforce(weaponData["Health"][weaponIndex], int(self.Weapon_healthReinforce.text()), False)
+        health += utils.getHealthReinforce(weaponData["Watt"][weaponIndex], int(self.Weapon_healthReinforce.text()), False)
         
         magnification = 0
         magnification += legData["HealthBonus"][legIndex]
@@ -505,8 +505,8 @@ class WindowClass(QMainWindow, form_class) :
         damage += subCoreData["Damage"][self.Leg_Subcore.currentIndex()]
         damage += subCoreData["Damage"][self.Body_Subcore.currentIndex()]
         damage += subCoreData["Damage"][self.Weapon_Subcore.currentIndex()]
-        damage += utils.getDamageReinforce(legData["Damage"][legIndex], int(self.Leg_damageReinforce.text()), False)
-        damage += utils.getDamageReinforce(bodyData["Damage"][bodyIndex], int(self.Body_damageReinforce.text()), False)
+        damage += utils.getDamageReinforce(legData["Watt"][legIndex], int(self.Leg_damageReinforce.text()), False)
+        damage += utils.getDamageReinforce(bodyData["Watt"][bodyIndex], int(self.Body_damageReinforce.text()), False)
         damage += utils.getDamageReinforce(weaponData["Damage"][weaponIndex], int(self.Weapon_damageReinforce.text()), True)
         
         magnification = 0
