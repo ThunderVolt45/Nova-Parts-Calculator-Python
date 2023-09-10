@@ -559,6 +559,8 @@ class WindowClass(QMainWindow, form_class) :
         armor += subCoreData["Armor"][self.Body_Subcore.currentIndex()]
         armor += subCoreData["Armor"][self.Weapon_Subcore.currentIndex()]
         
+        self.Assemble_armor.setText(str(int(armor)))
+        
         # 기타 특수 능력 정보 표시
         string = ""
         
