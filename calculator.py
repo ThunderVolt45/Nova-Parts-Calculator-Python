@@ -3,6 +3,7 @@ import sys
 import json
 import utils
 import constant
+import assemble
 from PyQt5.QtWidgets import *
 from PyQt5 import uic, QtCore
 from partSelector import partSelector
@@ -358,115 +359,33 @@ class WindowClass(QMainWindow, form_class) :
                 subCoreData["Special"][self.Weapon_Subcore.currentIndex()])
             
     def Assemble(self) :
+        partsIndex = (legIndex, bodyIndex, weaponIndex, accIndex)
+        subIndex = (self.Leg_Subcore.currentIndex(), self.Body_Subcore.currentIndex(), self.Weapon_Subcore.currentIndex())
+        
         # 하중 계산
-        weight = 0
+        weight = assemble.GetWeight(partsIndex)
         load = legData[legIndex]["Weight"]
-        
-        weight += bodyData[bodyIndex]["Weight"]
-        weight += weaponData[weaponIndex]["Weight"]
-        weight += accData[accIndex]["Weight"]
-        
         self.Assemble_weight.setText(str(weight) + " / " + str(load))
         
         # 와트 계산
-        watt = 0
-        
-        watt += legData[legIndex]["Watt"]
-        watt += bodyData[bodyIndex]["Watt"]
-        watt += weaponData[weaponIndex]["Watt"]
-        watt += accData[accIndex]["Watt"]
-        watt += subCoreData["Watt"][self.Leg_Subcore.currentIndex()]
-        watt += subCoreData["Watt"][self.Body_Subcore.currentIndex()]
-        watt += subCoreData["Watt"][self.Weapon_Subcore.currentIndex()]
-        watt -= utils.getWattReinforce(legData[legIndex]["Watt"], int(self.Leg_wattReinforce.text()))
-        watt -= utils.getWattReinforce(bodyData[bodyIndex]["Watt"], int(self.Body_wattReinforce.text()))
-        watt -= utils.getWattReinforce(weaponData[weaponIndex]["Watt"], int(self.Weapon_wattReinforce.text()))
-        
-        magnification = 0
-        magnification += subCoreData["WattBonus"][self.Leg_Subcore.currentIndex()]
-        magnification += subCoreData["WattBonus"][self.Body_Subcore.currentIndex()]
-        magnification += subCoreData["WattBonus"][self.Weapon_Subcore.currentIndex()]
-        
-        watt *= 1 + magnification / 100
-        
-        self.Assemble_watt.setText(str(int(watt)))
+        wattReinforce = (int(self.Leg_wattReinforce.text()), int(self.Body_wattReinforce.text()), int(self.Weapon_wattReinforce.text()))
+        self.Assemble_watt.setText(str(int(assemble.GetWatt(partsIndex, subIndex, wattReinforce))))
         
         # 체력 계산
-        health = 0
-        
-        health += legData[legIndex]["Health"]
-        health += bodyData[bodyIndex]["Health"]
-        health += weaponData[weaponIndex]["Health"]
-        health += accData[accIndex]["Health"]
-        health += subCoreData["Health"][self.Leg_Subcore.currentIndex()]
-        health += subCoreData["Health"][self.Body_Subcore.currentIndex()]
-        health += subCoreData["Health"][self.Weapon_Subcore.currentIndex()]
-        health += utils.getHealthReinforce(legData[legIndex]["Watt"], int(self.Leg_healthReinforce.text()), False)
-        health += utils.getHealthReinforce(bodyData[bodyIndex]["Health"], int(self.Body_healthReinforce.text()), True)
-        health += utils.getHealthReinforce(weaponData[weaponIndex]["Watt"], int(self.Weapon_healthReinforce.text()), False)
-        
-        magnification = 0
-        magnification += legData[legIndex]["HealthBonus"]
-        magnification += bodyData[bodyIndex]["HealthBonus"]
-        magnification += weaponData[weaponIndex]["HealthBonus"]
-        magnification += accData[accIndex]["HealthBonus"]
-        
-        health *= 1 + magnification / 100
-        
-        self.Assemble_health.setText(str(int(health)))
+        healthReinforce = (int(self.Leg_healthReinforce.text()), int(self.Body_healthReinforce.text()), int(self.Weapon_healthReinforce.text()))
+        self.Assemble_health.setText(str(int(assemble.GetHealth(partsIndex, subIndex, healthReinforce))))
         
         # 리젠 계산
-        regen = 0
-        
-        regen += legData[legIndex]["Regenerate"]
-        regen += bodyData[bodyIndex]["Regenerate"]
-        regen += weaponData[weaponIndex]["Regenerate"]
-        regen += accData[accIndex]["Regenerate"]
-        regen += subCoreData["Regenerate"][self.Leg_Subcore.currentIndex()]
-        regen += subCoreData["Regenerate"][self.Body_Subcore.currentIndex()]
-        regen += subCoreData["Regenerate"][self.Weapon_Subcore.currentIndex()]
-        
-        self.Assemble_regen.setText(str(int(regen)) + "%")
+        self.Assemble_regen.setText(str(int(assemble.GetRegenerate(partsIndex, subIndex))) + "%")
         
         # 속도 계산
-        speed = 0
-        
-        speed += legData[legIndex]["Speed"]
-        speed += bodyData[bodyIndex]["Speed"]
-        speed += weaponData[weaponIndex]["Speed"]
-        speed += accData[accIndex]["Speed"]
-        speed += subCoreData["Speed"][self.Leg_Subcore.currentIndex()]
-        speed += subCoreData["Speed"][self.Body_Subcore.currentIndex()]
-        speed += subCoreData["Speed"][self.Weapon_Subcore.currentIndex()]
-        
-        self.Assemble_speed.setText(str(int(speed)))
+        self.Assemble_speed.setText(str(int(assemble.GetSpeed(partsIndex, subIndex))))
         
         # 연사 계산
-        cooldown = 0
-        
-        cooldown += legData[legIndex]["Cooldown"]
-        cooldown += bodyData[bodyIndex]["Cooldown"]
-        cooldown += weaponData[weaponIndex]["Cooldown"]
-        cooldown += accData[accIndex]["Cooldown"]
-        cooldown += subCoreData["Cooldown"][self.Leg_Subcore.currentIndex()]
-        cooldown += subCoreData["Cooldown"][self.Body_Subcore.currentIndex()]
-        cooldown += subCoreData["Cooldown"][self.Weapon_Subcore.currentIndex()]
-        
-        if cooldown < 50 :
-            cooldown = 50
-            
-        self.Assemble_cooldown.setText(str(int(cooldown)))
+        self.Assemble_cooldown.setText(str(int(assemble.GetCooldown(partsIndex, subIndex))))
         
         # 사거리 계산
-        range = 0
-        
-        range += legData[legIndex]["Range"]
-        range += bodyData[bodyIndex]["Range"]
-        range += weaponData[weaponIndex]["Range"]
-        range += accData[accIndex]["Range"]
-        range += subCoreData["Range"][self.Leg_Subcore.currentIndex()]
-        range += subCoreData["Range"][self.Body_Subcore.currentIndex()]
-        range += subCoreData["Range"][self.Weapon_Subcore.currentIndex()]
+        range = assemble.GetRange(partsIndex, subIndex)
         
         if weaponData[weaponIndex]["RangeMinimum"] != 0 :
             self.Assemble_range.setText(str(weaponData[weaponIndex]["RangeMinimum"]) + " - " + str(int(range)))
@@ -474,15 +393,7 @@ class WindowClass(QMainWindow, form_class) :
             self.Assemble_range.setText(str(int(range)))
             
         # 범위 계산
-        splash = 0
-        
-        splash += legData[legIndex]["Splash"]
-        splash += bodyData[bodyIndex]["Splash"]
-        splash += weaponData[weaponIndex]["Splash"]
-        splash += accData[accIndex]["Splash"]
-        splash += subCoreData["Splash"][self.Leg_Subcore.currentIndex()]
-        splash += subCoreData["Splash"][self.Body_Subcore.currentIndex()]
-        splash += subCoreData["Splash"][self.Weapon_Subcore.currentIndex()]
+        splash = assemble.GetSplash(partsIndex, subIndex)
         
         if weaponData[weaponIndex]["Splash"] == 0 :
             self.Assemble_splash.setText("없음")
@@ -490,54 +401,14 @@ class WindowClass(QMainWindow, form_class) :
             self.Assemble_splash.setText(str(int(splash)))
             
         # 시야 계산
-        sight = 0
-        
-        sight += legData[legIndex]["Sight"]
-        sight += bodyData[bodyIndex]["Sight"]
-        sight += weaponData[weaponIndex]["Sight"]
-        sight += accData[accIndex]["Sight"]
-        sight += subCoreData["Sight"][self.Leg_Subcore.currentIndex()]
-        sight += subCoreData["Sight"][self.Body_Subcore.currentIndex()]
-        sight += subCoreData["Sight"][self.Weapon_Subcore.currentIndex()]
-        
-        if sight > 30 : sight = 30
-        
-        self.Assemble_sight.setText(str(int(sight)))
+        self.Assemble_sight.setText(str(int(assemble.GetSight(partsIndex, subIndex))))
         
         # 공격 계산
-        damage = 0
-        
-        damage += legData[legIndex]["Damage"]
-        damage += bodyData[bodyIndex]["Damage"]
-        damage += weaponData[weaponIndex]["Damage"]
-        damage += accData[accIndex]["Damage"]
-        damage += subCoreData["Damage"][self.Leg_Subcore.currentIndex()]
-        damage += subCoreData["Damage"][self.Body_Subcore.currentIndex()]
-        damage += subCoreData["Damage"][self.Weapon_Subcore.currentIndex()]
-        damage += utils.getDamageReinforce(legData[legIndex]["Watt"], int(self.Leg_damageReinforce.text()), False)
-        damage += utils.getDamageReinforce(bodyData[bodyIndex]["Watt"], int(self.Body_damageReinforce.text()), False)
-        damage += utils.getDamageReinforce(weaponData[weaponIndex]["Damage"], int(self.Weapon_damageReinforce.text()), True)
-        
-        magnification = 0
-        magnification += legData[legIndex]["DamageBonus"]
-        magnification += bodyData[bodyIndex]["DamageBonus"]
-        magnification += weaponData[weaponIndex]["DamageBonus"]
-        magnification += accData[accIndex]["DamageBonus"]
-        
-        damage *= 1 + magnification / 100
-        
-        self.Assemble_damage.setText(str(int(damage)))
+        damageReinforce = (int(self.Leg_damageReinforce.text()), int(self.Body_damageReinforce.text()), int(self.Weapon_damageReinforce.text()))
+        self.Assemble_damage.setText(str(int(assemble.GetDamage(partsIndex, subIndex, damageReinforce))))
         
         # 체력 비례 데미지 계산
-        dph = 0
-        
-        dph += legData[legIndex]["DamagePerHealth"]
-        dph += bodyData[bodyIndex]["DamagePerHealth"]
-        dph += weaponData[weaponIndex]["DamagePerHealth"]
-        dph += accData[accIndex]["DamagePerHealth"]
-        dph += subCoreData["DamagePerHealth"][self.Leg_Subcore.currentIndex()]
-        dph += subCoreData["DamagePerHealth"][self.Body_Subcore.currentIndex()]
-        dph += subCoreData["DamagePerHealth"][self.Weapon_Subcore.currentIndex()]
+        dph = assemble.GetDamagePerHealth(partsIndex, subIndex)
         
         if dph != 0 :
             self.Assemble_dph.setText(str(int(dph)) + "%")
@@ -545,33 +416,10 @@ class WindowClass(QMainWindow, form_class) :
             self.Assemble_dph.setText("없음")
             
         # 방어 무시 계산
-        pierce = 0
-        
-        pierce += legData[legIndex]["Pierce"]
-        pierce += bodyData[bodyIndex]["Pierce"]
-        pierce += weaponData[weaponIndex]["Pierce"]
-        pierce += accData[accIndex]["Pierce"]
-        pierce += subCoreData["Pierce"][self.Leg_Subcore.currentIndex()]
-        pierce += subCoreData["Pierce"][self.Body_Subcore.currentIndex()]
-        pierce += subCoreData["Pierce"][self.Weapon_Subcore.currentIndex()]
-        
-        self.Assemble_pierce.setText(str(int(pierce)))
+        self.Assemble_pierce.setText(str(int(assemble.GetPierce(partsIndex, subIndex))))
         
         # 방어 계산
-        armor = 0
-        
-        armor += legData[legIndex]["Armor"]
-        armor += bodyData[bodyIndex]["Armor"]
-        armor += weaponData[weaponIndex]["Armor"]
-        armor += accData[accIndex]["Armor"]
-        armor += subCoreData["Armor"][self.Leg_Subcore.currentIndex()]
-        armor += subCoreData["Armor"][self.Body_Subcore.currentIndex()]
-        armor += subCoreData["Armor"][self.Weapon_Subcore.currentIndex()]
-        
-        if armor >= 0 : 
-            self.Assemble_armor.setText(str(int(armor)))
-        else :
-            self.Assemble_armor.setText("0")
+        self.Assemble_armor.setText(str(int(assemble.GetArmor(partsIndex, subIndex))))
         
         # 기타 특수 능력 정보 표시
         string = ""
