@@ -56,8 +56,8 @@ class partSelector(QDialog, QWidget, form_partSelector):
             with open(constant.FILE_PATH_ACC, "r", encoding = "UTF-8") as file :
                 data = json.load(file)
         
-        for i in range(len(data["ID"])):
-            self.comboBox.addItem(data["Name"][i])
+        for i in range(len(data)):
+            self.comboBox.addItem(data[i]["Name"])
         self.comboBox.setCurrentIndex(value[1])
         self.value = value[1]
             

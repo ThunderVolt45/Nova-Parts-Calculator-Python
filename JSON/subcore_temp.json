@@ -1,0 +1,27 @@
+[
+    {
+        "ID": 0,
+        "Name": "서브코어 없음",
+        "N": false,
+        "Weight": 0,
+        "Watt": 0,
+        "Health": 0,
+        "HealthBonus": 0,
+        "Damage": 0,
+        "DamageBonus": 0,
+        "DamagePerHealth": 0,
+        "CanAttackGround": "FALSE",
+        "CanAttackAir": "FALSE",
+        "Pierce": 0,
+        "Speed": 0,
+        "Armor": 0,
+        "Cooldown": 0,
+        "Sight": 0,
+        "Range": 0,
+        "RangeMinimum": 0,
+        "Regenerate": 0,
+        "Splash": 0,
+        "SplashReduce": 0,
+        "Special": "서브코어 없음"
+    }
+]

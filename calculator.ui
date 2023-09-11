@@ -2027,6 +2027,22 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="Weapon_attack">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>395</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>공격 능력 없음</string>
+    </property>
+    <property name="buddy">
+     <cstring>Leg_wattBase</cstring>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -2039,12 +2055,24 @@
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
-     <string>파일</string>
+     <string>설정</string>
     </property>
+    <addaction name="actionfloat"/>
    </widget>
    <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionfloat">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>float형으로 강화 수치 계산</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
