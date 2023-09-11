@@ -306,46 +306,64 @@ class WindowClass(QMainWindow, form_class) :
         self.SetWeaponReinforceValue()
         
     def SetLegReinforceValue(self) :
+        wattBase = utils.getWattBase(legData[legIndex]["Watt"])
+        healthBase = utils.getHealthBase(legData[legIndex]["Watt"], False)
+        damageBase = utils.getDamageBase(legData[legIndex]["Watt"], False)
+        
+        if not calculateAsFloat :
+            wattBase = int(wattBase)
+            healthBase = int(healthBase)
+            damageBase = int(damageBase)
+            
         self.Leg_wattAdd.setText(
             str(utils.getWattReinforce(legData[legIndex]["Watt"], int(self.Leg_wattReinforce.text()), calculateAsFloat)) 
-            + " / " + str(utils.getWattBase(legData[legIndex]["Watt"], calculateAsFloat))
-        )
+            + " / " + str(wattBase))
         self.Leg_healthAdd.setText(
             str(utils.getHealthReinforce(legData[legIndex]["Watt"], int(self.Leg_healthReinforce.text()), False, calculateAsFloat)) 
-            + " / " + str(utils.getHealthBase(legData[legIndex]["Watt"], False, calculateAsFloat))
-        )
+            + " / " + str(healthBase))
         self.Leg_damageAdd.setText(
             str(utils.getDamageReinforce(legData[legIndex]["Watt"], int(self.Leg_damageReinforce.text()), False, calculateAsFloat))
-            + " / " + str(utils.getDamageBase(legData[legIndex]["Watt"], False, calculateAsFloat))
-        )
+            + " / " + str(damageBase))
     
     def SetBodyReinforceValue(self) :
+        wattBase = utils.getWattBase(bodyData[bodyIndex]["Watt"])
+        healthBase = utils.getHealthBase(bodyData[bodyIndex]["Health"], True)
+        damageBase = utils.getDamageBase(bodyData[bodyIndex]["Watt"], False)
+        
+        if not calculateAsFloat :
+            wattBase = int(wattBase)
+            healthBase = int(healthBase)
+            damageBase = int(damageBase)
+        
         self.Body_wattAdd.setText(
             str(utils.getWattReinforce(bodyData[bodyIndex]["Watt"], int(self.Body_wattReinforce.text()), calculateAsFloat)) 
-            + " / " + str(utils.getWattBase(bodyData[bodyIndex]["Watt"], calculateAsFloat))
-        )
+            + " / " + str(wattBase))
         self.Body_healthAdd.setText(
             str(utils.getHealthReinforce(bodyData[bodyIndex]["Health"], int(self.Body_healthReinforce.text()), True, calculateAsFloat)) 
-            + " / " + str(utils.getHealthBase(bodyData[bodyIndex]["Health"], True, calculateAsFloat))
-        )
+            + " / " + str(healthBase))
         self.Body_damageAdd.setText(
             str(utils.getDamageReinforce(bodyData[bodyIndex]["Watt"], int(self.Body_damageReinforce.text()), False, calculateAsFloat))
-            + " / " + str(utils.getDamageBase(bodyData[bodyIndex]["Watt"], False, calculateAsFloat))
-        )
+            + " / " + str(damageBase))
         
     def SetWeaponReinforceValue(self) :
+        wattBase = utils.getWattBase(weaponData[weaponIndex]["Watt"])
+        healthBase = utils.getHealthBase(weaponData[weaponIndex]["Watt"], False)
+        damageBase = utils.getDamageBase(weaponData[weaponIndex]["Damage"], True)
+        
+        if not calculateAsFloat :
+            wattBase = int(wattBase)
+            healthBase = int(healthBase)
+            damageBase = int(damageBase)
+        
         self.Weapon_wattAdd.setText(
             str(utils.getWattReinforce(weaponData[weaponIndex]["Watt"], int(self.Weapon_wattReinforce.text()), calculateAsFloat)) 
-            + " / " + str(utils.getWattBase(weaponData[weaponIndex]["Watt"], calculateAsFloat))
-        )
+            + " / " + str(wattBase))
         self.Weapon_healthAdd.setText(
             str(utils.getHealthReinforce(weaponData[weaponIndex]["Watt"], int(self.Weapon_healthReinforce.text()), False, calculateAsFloat)) 
-            + " / " + str(utils.getHealthBase(weaponData[weaponIndex]["Watt"], False, calculateAsFloat))
-        )
+            + " / " + str(healthBase))
         self.Weapon_damageAdd.setText(
             str(utils.getDamageReinforce(weaponData[weaponIndex]["Damage"], int(self.Weapon_damageReinforce.text()), True, calculateAsFloat))
-            + " / " + str(utils.getDamageBase(weaponData[weaponIndex]["Damage"], True, calculateAsFloat))
-        )
+            + " / " + str(damageBase))
         
     def LegSubcoreSelect(self) :
         self.Leg_SubcoreLabel.setText(
