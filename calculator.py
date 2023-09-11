@@ -24,11 +24,13 @@ global legIndex
 global bodyIndex
 global weaponIndex
 global accIndex
+global calculateAsFloat
 
 legIndex = 0
 bodyIndex = 0
 weaponIndex = 0
 accIndex = 0
+calculateAsFloat = False
 
 # JSON 파일 읽기
 global legData
@@ -87,6 +89,9 @@ class WindowClass(QMainWindow, form_class) :
             self.Leg_Subcore.addItem(subCoreData["Name"][i])
             self.Body_Subcore.addItem(subCoreData["Name"][i])
             self.Weapon_Subcore.addItem(subCoreData["Name"][i])
+            
+        # QAction 기능 연결
+        self.actionFloat.triggered.connect(self.CalculateAsFloat)
         
         
     def LegBtnFunction(self) :
@@ -302,44 +307,44 @@ class WindowClass(QMainWindow, form_class) :
         
     def SetLegReinforceValue(self) :
         self.Leg_wattAdd.setText(
-            str(utils.getWattReinforce(legData[legIndex]["Watt"], int(self.Leg_wattReinforce.text()))) 
-            + " / " + str(utils.getWattBase(legData[legIndex]["Watt"]))
+            str(utils.getWattReinforce(legData[legIndex]["Watt"], int(self.Leg_wattReinforce.text()), calculateAsFloat)) 
+            + " / " + str(utils.getWattBase(legData[legIndex]["Watt"], calculateAsFloat))
         )
         self.Leg_healthAdd.setText(
-            str(utils.getHealthReinforce(legData[legIndex]["Watt"], int(self.Leg_healthReinforce.text()), False)) 
-            + " / " + str(utils.getHealthBase(legData[legIndex]["Watt"], False))
+            str(utils.getHealthReinforce(legData[legIndex]["Watt"], int(self.Leg_healthReinforce.text()), False, calculateAsFloat)) 
+            + " / " + str(utils.getHealthBase(legData[legIndex]["Watt"], False, calculateAsFloat))
         )
         self.Leg_damageAdd.setText(
-            str(utils.getDamageReinforce(legData[legIndex]["Watt"], int(self.Leg_damageReinforce.text()), False))
-            + " / " + str(utils.getDamageBase(legData[legIndex]["Watt"], False))
+            str(utils.getDamageReinforce(legData[legIndex]["Watt"], int(self.Leg_damageReinforce.text()), False, calculateAsFloat))
+            + " / " + str(utils.getDamageBase(legData[legIndex]["Watt"], False, calculateAsFloat))
         )
     
     def SetBodyReinforceValue(self) :
         self.Body_wattAdd.setText(
-            str(utils.getWattReinforce(bodyData[bodyIndex]["Watt"], int(self.Body_wattReinforce.text()))) 
-            + " / " + str(utils.getWattBase(bodyData[bodyIndex]["Watt"]))
+            str(utils.getWattReinforce(bodyData[bodyIndex]["Watt"], int(self.Body_wattReinforce.text()), calculateAsFloat)) 
+            + " / " + str(utils.getWattBase(bodyData[bodyIndex]["Watt"], calculateAsFloat))
         )
         self.Body_healthAdd.setText(
-            str(utils.getHealthReinforce(bodyData[bodyIndex]["Health"], int(self.Body_healthReinforce.text()), True)) 
-            + " / " + str(utils.getHealthBase(bodyData[bodyIndex]["Health"], True))
+            str(utils.getHealthReinforce(bodyData[bodyIndex]["Health"], int(self.Body_healthReinforce.text()), True, calculateAsFloat)) 
+            + " / " + str(utils.getHealthBase(bodyData[bodyIndex]["Health"], True, calculateAsFloat))
         )
         self.Body_damageAdd.setText(
-            str(utils.getDamageReinforce(bodyData[bodyIndex]["Watt"], int(self.Body_damageReinforce.text()), False))
-            + " / " + str(utils.getDamageBase(bodyData[bodyIndex]["Watt"], False))
+            str(utils.getDamageReinforce(bodyData[bodyIndex]["Watt"], int(self.Body_damageReinforce.text()), False, calculateAsFloat))
+            + " / " + str(utils.getDamageBase(bodyData[bodyIndex]["Watt"], False, calculateAsFloat))
         )
         
     def SetWeaponReinforceValue(self) :
         self.Weapon_wattAdd.setText(
-            str(utils.getWattReinforce(weaponData[weaponIndex]["Watt"], int(self.Weapon_wattReinforce.text()))) 
-            + " / " + str(utils.getWattBase(weaponData[weaponIndex]["Watt"]))
+            str(utils.getWattReinforce(weaponData[weaponIndex]["Watt"], int(self.Weapon_wattReinforce.text()), calculateAsFloat)) 
+            + " / " + str(utils.getWattBase(weaponData[weaponIndex]["Watt"], calculateAsFloat))
         )
         self.Weapon_healthAdd.setText(
-            str(utils.getHealthReinforce(weaponData[weaponIndex]["Watt"], int(self.Weapon_healthReinforce.text()), False)) 
-            + " / " + str(utils.getHealthBase(weaponData[weaponIndex]["Watt"], False))
+            str(utils.getHealthReinforce(weaponData[weaponIndex]["Watt"], int(self.Weapon_healthReinforce.text()), False, calculateAsFloat)) 
+            + " / " + str(utils.getHealthBase(weaponData[weaponIndex]["Watt"], False, calculateAsFloat))
         )
         self.Weapon_damageAdd.setText(
-            str(utils.getDamageReinforce(weaponData[weaponIndex]["Damage"], int(self.Weapon_damageReinforce.text()), True))
-            + " / " + str(utils.getDamageBase(weaponData[weaponIndex]["Damage"], True))
+            str(utils.getDamageReinforce(weaponData[weaponIndex]["Damage"], int(self.Weapon_damageReinforce.text()), True, calculateAsFloat))
+            + " / " + str(utils.getDamageBase(weaponData[weaponIndex]["Damage"], True, calculateAsFloat))
         )
         
     def LegSubcoreSelect(self) :
@@ -369,11 +374,11 @@ class WindowClass(QMainWindow, form_class) :
         
         # 와트 계산
         wattReinforce = (int(self.Leg_wattReinforce.text()), int(self.Body_wattReinforce.text()), int(self.Weapon_wattReinforce.text()))
-        self.Assemble_watt.setText(str(int(assemble.GetWatt(partsIndex, subIndex, wattReinforce))))
+        self.Assemble_watt.setText(str(assemble.GetWatt(partsIndex, subIndex, wattReinforce, self.actionFloat.isChecked())))
         
         # 체력 계산
         healthReinforce = (int(self.Leg_healthReinforce.text()), int(self.Body_healthReinforce.text()), int(self.Weapon_healthReinforce.text()))
-        self.Assemble_health.setText(str(int(assemble.GetHealth(partsIndex, subIndex, healthReinforce))))
+        self.Assemble_health.setText(str(assemble.GetHealth(partsIndex, subIndex, healthReinforce, self.actionFloat.isChecked())))
         
         # 리젠 계산
         self.Assemble_regen.setText(str(int(assemble.GetRegenerate(partsIndex, subIndex))) + "%")
@@ -405,7 +410,11 @@ class WindowClass(QMainWindow, form_class) :
         
         # 공격 계산
         damageReinforce = (int(self.Leg_damageReinforce.text()), int(self.Body_damageReinforce.text()), int(self.Weapon_damageReinforce.text()))
-        self.Assemble_damage.setText(str(int(assemble.GetDamage(partsIndex, subIndex, damageReinforce))))
+        
+        if not weaponData[weaponIndex]["CanAttackGround"] and not weaponData[weaponIndex]["CanAttackAir"] :
+            self.Assemble_damage.setText("없음")
+        else :
+            self.Assemble_damage.setText(str(assemble.GetDamage(partsIndex, subIndex, damageReinforce, self.actionFloat.isChecked())))
         
         # 체력 비례 데미지 계산
         dph = assemble.GetDamagePerHealth(partsIndex, subIndex)
@@ -574,6 +583,13 @@ class WindowClass(QMainWindow, form_class) :
             self.AccBtn.setStyleSheet("")
             self.Assemble_weight.setStyleSheet("")
             self.Assemble_label.setText("조립 완료")
+            
+    def CalculateAsFloat(self) :
+        global calculateAsFloat
+        calculateAsFloat = self.actionFloat.isChecked()
+        self.SetLegReinforceValue()
+        self.SetBodyReinforceValue()
+        self.SetWeaponReinforceValue()
         
         
         

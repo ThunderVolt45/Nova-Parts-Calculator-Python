@@ -2057,12 +2057,12 @@
     <property name="title">
      <string>설정</string>
     </property>
-    <addaction name="actionfloat"/>
+    <addaction name="actionFloat"/>
    </widget>
    <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionfloat">
+  <action name="actionFloat">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -2070,7 +2070,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>float형으로 강화 수치 계산</string>
+    <string>부동소수점 강화 수치 계산</string>
    </property>
   </action>
  </widget>

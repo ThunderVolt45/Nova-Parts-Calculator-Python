@@ -33,7 +33,7 @@ def GetWeight(partsIndex: tuple):
     
     return weight
 
-def GetWatt(partsIndex: tuple, subIndex: tuple, reinforce: tuple):
+def GetWatt(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsFloat: bool):
     # 와트 계산
     watt = 0
 
@@ -44,9 +44,9 @@ def GetWatt(partsIndex: tuple, subIndex: tuple, reinforce: tuple):
     watt += subCoreData["Watt"][subIndex[0]]
     watt += subCoreData["Watt"][subIndex[1]]
     watt += subCoreData["Watt"][subIndex[2]]
-    watt -= utils.getWattReinforce(legData[partsIndex[0]]["Watt"], reinforce[0])
-    watt -= utils.getWattReinforce(bodyData[partsIndex[1]]["Watt"], reinforce[1])
-    watt -= utils.getWattReinforce(weaponData[partsIndex[2]]["Watt"], reinforce[2])
+    watt -= utils.getWattReinforce(legData[partsIndex[0]]["Watt"], reinforce[0], calculateAsFloat)
+    watt -= utils.getWattReinforce(bodyData[partsIndex[1]]["Watt"], reinforce[1], calculateAsFloat)
+    watt -= utils.getWattReinforce(weaponData[partsIndex[2]]["Watt"], reinforce[2], calculateAsFloat)
 
     magnification = 0
     magnification += subCoreData["WattBonus"][subIndex[0]]
@@ -55,9 +55,10 @@ def GetWatt(partsIndex: tuple, subIndex: tuple, reinforce: tuple):
 
     watt *= 1 + magnification / 100
     
-    return watt
+    if calculateAsFloat : return watt
+    else : return int(watt)
 
-def GetHealth(partsIndex: tuple, subIndex: tuple, reinforce: tuple):
+def GetHealth(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsFloat: bool):
     # 체력 계산
     health = 0
     
@@ -68,9 +69,9 @@ def GetHealth(partsIndex: tuple, subIndex: tuple, reinforce: tuple):
     health += subCoreData["Health"][subIndex[0]]
     health += subCoreData["Health"][subIndex[1]]
     health += subCoreData["Health"][subIndex[2]]
-    health += utils.getHealthReinforce(legData[partsIndex[0]]["Watt"], reinforce[0], False)
-    health += utils.getHealthReinforce(bodyData[partsIndex[1]]["Health"], reinforce[1], True)
-    health += utils.getHealthReinforce(weaponData[partsIndex[2]]["Watt"], reinforce[2], False)
+    health += utils.getHealthReinforce(legData[partsIndex[0]]["Watt"], reinforce[0], False, calculateAsFloat)
+    health += utils.getHealthReinforce(bodyData[partsIndex[1]]["Health"], reinforce[1], True, calculateAsFloat)
+    health += utils.getHealthReinforce(weaponData[partsIndex[2]]["Watt"], reinforce[2], False, calculateAsFloat)
         
     magnification = 0
     magnification += legData[partsIndex[0]]["HealthBonus"]
@@ -80,9 +81,10 @@ def GetHealth(partsIndex: tuple, subIndex: tuple, reinforce: tuple):
         
     health *= 1 + magnification / 100
     
-    return health
+    if calculateAsFloat : return health
+    else : return int(health)
 
-def GetDamage(partsIndex: tuple, subIndex: tuple, reinforce: tuple):
+def GetDamage(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsFloat: bool):
     # 공격력 계산
     damage = 0
     
@@ -93,9 +95,9 @@ def GetDamage(partsIndex: tuple, subIndex: tuple, reinforce: tuple):
     damage += subCoreData["Damage"][subIndex[0]]
     damage += subCoreData["Damage"][subIndex[1]]
     damage += subCoreData["Damage"][subIndex[2]]
-    damage += utils.getDamageReinforce(legData[partsIndex[0]]["Watt"], reinforce[0], False)
-    damage += utils.getDamageReinforce(bodyData[partsIndex[1]]["Watt"], reinforce[1], False)
-    damage += utils.getDamageReinforce(weaponData[partsIndex[2]]["Damage"], reinforce[2], True)
+    damage += utils.getDamageReinforce(legData[partsIndex[0]]["Watt"], reinforce[0], False, calculateAsFloat)
+    damage += utils.getDamageReinforce(bodyData[partsIndex[1]]["Watt"], reinforce[1], False, calculateAsFloat)
+    damage += utils.getDamageReinforce(weaponData[partsIndex[2]]["Damage"], reinforce[2], True, calculateAsFloat)
         
     magnification = 0
     magnification += legData[partsIndex[0]]["DamageBonus"]
@@ -105,7 +107,8 @@ def GetDamage(partsIndex: tuple, subIndex: tuple, reinforce: tuple):
         
     damage *= 1 + magnification / 100
     
-    return damage
+    if calculateAsFloat : return damage
+    else : return int(damage)
     
 def GetRegenerate(partsIndex: tuple, subIndex: tuple):
     # 리젠 계산
