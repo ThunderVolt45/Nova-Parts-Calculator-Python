@@ -55,7 +55,7 @@ def GetWatt(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsFlo
 
     watt *= 1 + magnification / 100
     
-    if calculateAsFloat : return watt
+    if calculateAsFloat : return round(watt, 4)
     else : return int(watt)
 
 def GetHealth(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsFloat: bool):
@@ -81,7 +81,7 @@ def GetHealth(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsF
         
     health *= 1 + magnification / 100
     
-    if calculateAsFloat : return health
+    if calculateAsFloat : return round(health, 4)
     else : return int(health)
 
 def GetDamage(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsFloat: bool):
@@ -107,7 +107,7 @@ def GetDamage(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsF
         
     damage *= 1 + magnification / 100
     
-    if calculateAsFloat : return damage
+    if calculateAsFloat : return round(damage, 4)
     else : return int(damage)
     
 def GetRegenerate(partsIndex: tuple, subIndex: tuple):
