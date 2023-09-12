@@ -1923,5 +1923,30 @@
     "Splash": 0,
     "SplashReduce": 0,
     "Special": ""
+  },
+  {
+    "ID": 77,
+    "Name": "초신성",
+    "N": false,
+    "Weight": 50,
+    "Watt": 100,
+    "Health": 300,
+    "HealthBonus": 0,
+    "Damage": 30,
+    "DamageBonus": 0,
+    "DamagePerHealth": 0,
+    "CanAttackGround": "FALSE",
+    "CanAttackAir": "FALSE",
+    "Pierce": 0,
+    "Speed": 10,
+    "Armor": 10,
+    "Cooldown": -15,
+    "Sight": 3,
+    "Range": 0,
+    "RangeMinimum": 0,
+    "Regenerate": 0,
+    "Splash": 0,
+    "SplashReduce": 0,
+    "Special": ""
   }
 ]
