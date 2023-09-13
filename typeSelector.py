@@ -58,16 +58,21 @@ class typeSelector(QDialog, QWidget, form_typeSelector):
         
         self.comboBox_Type.setCurrentIndex(data[value[1]]["Type"])
         
+        # 일치하는 형태의 부품만 QComboBox에 추가
         for i in range(len(data)):
             if data[i]["Type"] == self.comboBox_Type.currentIndex():
                 self.comboBox_Parts.addItem(data[i]["Name"])
         
+        # 현재 인덱스를 기존에 선택했던 부품으로 변경
         for i in range(self.comboBox_Parts.count()):
             if data[value[1]]["Name"] == self.comboBox_Parts.itemText(i):
                 self.comboBox_Parts.setCurrentIndex(i)
                 
         # QComboBox 기능 연결
         self.comboBox_Type.currentIndexChanged.connect(self.onChangeType)
+        
+        # 기존에 선택했던 부품 기록
+        self.value = value[1]
     
     def onChangeType(self):
         self.comboBox_Parts.clear()
