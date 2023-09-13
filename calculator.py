@@ -7,6 +7,7 @@ import assemble
 from PyQt5.QtWidgets import *
 from PyQt5 import uic, QtCore
 from partSelector import partSelector
+from typeSelector import typeSelector
 
 ###############################################################
 # UI파일 연결
@@ -135,7 +136,8 @@ class WindowClass(QMainWindow, form_class) :
         global bodyIndex
         temp = [ constant.BODY, bodyIndex ]
         
-        self.BtnFunction(temp)
+        # self.BtnFunction(temp)
+        self.BtnTypeFunction(temp)
         
         # 두 번째 창에서 값을 전달 받음
         bodyIndex = self.second.value
@@ -171,7 +173,8 @@ class WindowClass(QMainWindow, form_class) :
         global weaponIndex
         temp = [ constant.WEAPON, weaponIndex ]
         
-        self.BtnFunction(temp)
+        # self.BtnFunction(temp)
+        self.BtnTypeFunction(temp)
         
         # 두 번째 창에서 값을 전달 받음
         weaponIndex = self.second.value
@@ -256,6 +259,13 @@ class WindowClass(QMainWindow, form_class) :
     @QtCore.pyqtSlot()
     def BtnFunction(self, list) : # Widget 연결
         self.second = partSelector()
+        self.signal.connect(self.second.on_signal_from_main) # 시그널 연결
+        self.signal.emit(list) # 값 전달
+        self.second.exec() # 두 번째 창이 꺼질 때까지 대기
+    
+    @QtCore.pyqtSlot()
+    def BtnTypeFunction(self, list) :
+        self.second = typeSelector()
         self.signal.connect(self.second.on_signal_from_main) # 시그널 연결
         self.signal.emit(list) # 값 전달
         self.second.exec() # 두 번째 창이 꺼질 때까지 대기
