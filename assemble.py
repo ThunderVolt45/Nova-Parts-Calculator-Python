@@ -166,7 +166,7 @@ def GetRange(partsIndex: tuple, subIndex: tuple):
     range += accData[partsIndex[3]]["Range"]
     range += subCoreData["Range"][subIndex[0]]
     range += subCoreData["Range"][subIndex[1]]
-    range += subCoreData["Range"][subIndex[2]]
+    range += subCoreData["RangeWeapon"][subIndex[2]]
     
     return range
 
