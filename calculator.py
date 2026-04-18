@@ -58,6 +58,7 @@ with open(constant.FILE_PATH_SUBCORE, "r", encoding = "UTF-8") as file :
 class WindowClass(QMainWindow, form_class) :
     signal = QtCore.pyqtSignal(list)
     
+    totalWatt = 0
     def __init__(self) :
         super().__init__()
         self.setupUi(self)
@@ -79,6 +80,7 @@ class WindowClass(QMainWindow, form_class) :
         self.Weapon_wattReinforce.textChanged.connect(self.WeaponWattReinforce)
         self.Weapon_healthReinforce.textChanged.connect(self.WeaponHealthReinforce)
         self.Weapon_damageReinforce.textChanged.connect(self.WeaponDamageReinforce)
+        self.Skill_TeamdualPlayer.textChanged.connect(self.SetTeamdualPlayer)
         
         # QComboBox 기능 연결
         self.Leg_Subcore.currentIndexChanged.connect(self.LegSubcoreSelect)
@@ -94,6 +96,10 @@ class WindowClass(QMainWindow, form_class) :
         # QAction 기능 연결
         self.actionFloat.triggered.connect(self.CalculateAsFloat)
         
+        # QCheckBox 기능 연결
+        self.Status_Deathmatch.stateChanged.connect(self.SetTotalDamage)
+        self.Skill_Attackbase.stateChanged.connect(self.SetTotalDamage)
+        self.Skill_Defensebase.stateChanged.connect(self.SetTotalArmor)
         
     def LegBtnFunction(self) :
         global legIndex
@@ -272,48 +278,54 @@ class WindowClass(QMainWindow, form_class) :
         
     def LegWattReinforce(self) : 
         string = self.Leg_wattReinforce.text()
-        self.Leg_wattReinforce.setText(utils.lineEditToNum(string))
+        self.Leg_wattReinforce.setText(utils.lineEditToNum(string, 100))
         self.SetLegReinforceValue()
         
     def LegHealthReinforce(self) : 
         string = self.Leg_healthReinforce.text()
-        self.Leg_healthReinforce.setText(utils.lineEditToNum(string))
+        self.Leg_healthReinforce.setText(utils.lineEditToNum(string, 100))
         self.SetLegReinforceValue()
         
     def LegDamageReinforce(self) : 
         string = self.Leg_damageReinforce.text()
-        self.Leg_damageReinforce.setText(utils.lineEditToNum(string))
+        self.Leg_damageReinforce.setText(utils.lineEditToNum(string, 100))
         self.SetLegReinforceValue()
         
     def BodyWattReinforce(self) : 
         string = self.Body_wattReinforce.text()
-        self.Body_wattReinforce.setText(utils.lineEditToNum(string))
+        self.Body_wattReinforce.setText(utils.lineEditToNum(string, 100))
         self.SetBodyReinforceValue()
         
     def BodyHealthReinforce(self) : 
         string = self.Body_healthReinforce.text()
-        self.Body_healthReinforce.setText(utils.lineEditToNum(string))
+        self.Body_healthReinforce.setText(utils.lineEditToNum(string, 100))
         self.SetBodyReinforceValue()
         
     def BodyDamageReinforce(self) : 
         string = self.Body_damageReinforce.text()
-        self.Body_damageReinforce.setText(utils.lineEditToNum(string))
+        self.Body_damageReinforce.setText(utils.lineEditToNum(string, 100))
         self.SetBodyReinforceValue()
         
     def WeaponWattReinforce(self) : 
         string = self.Weapon_wattReinforce.text()
-        self.Weapon_wattReinforce.setText(utils.lineEditToNum(string))
+        self.Weapon_wattReinforce.setText(utils.lineEditToNum(string, 100))
         self.SetWeaponReinforceValue()
         
     def WeaponHealthReinforce(self) : 
         string = self.Weapon_healthReinforce.text()
-        self.Weapon_healthReinforce.setText(utils.lineEditToNum(string))
+        self.Weapon_healthReinforce.setText(utils.lineEditToNum(string, 100))
         self.SetWeaponReinforceValue()
         
     def WeaponDamageReinforce(self) : 
         string = self.Weapon_damageReinforce.text()
-        self.Weapon_damageReinforce.setText(utils.lineEditToNum(string))
+        self.Weapon_damageReinforce.setText(utils.lineEditToNum(string, 100))
         self.SetWeaponReinforceValue()
+        
+    def SetTeamdualPlayer(self) : 
+        string = self.Skill_TeamdualPlayer.text()
+        self.Skill_TeamdualPlayer.setText(utils.lineEditToNum(string, 12))
+        self.SetTotalDamage()
+        self.SetTotalArmor()
         
     def SetLegReinforceValue(self) :
         wattBase = utils.getWattBase(legData[legIndex]["Watt"])
@@ -390,7 +402,28 @@ class WindowClass(QMainWindow, form_class) :
         else : 
             self.Weapon_SubcoreLabel.setText(
                 subCoreData["Special"][self.Weapon_Subcore.currentIndex()])
-            
+
+    def SetTotalDamage(self) :
+        if not self.Assemble_damage.text().isdigit() :
+            self.Assemble_totaldamage.setText("없음")
+        else :
+            totalWatt = int(self.Assemble_watt.text())
+            damageResult = int(self.Assemble_damage.text())
+            if self.Skill_Attackbase.isChecked() :
+                damageResult += utils.getAttackDefenseBase(totalWatt)
+            damageResult += utils.getTeamDual(totalWatt, int(self.Skill_TeamdualPlayer.text()))
+            if self.Status_Deathmatch.isChecked() :
+                damageResult *= 2
+            self.Assemble_totaldamage.setText(str(damageResult))
+
+    def SetTotalArmor(self) :
+        totalWatt = int(self.Assemble_watt.text())
+        armorResult = int(self.Assemble_armor.text())
+        if self.Skill_Defensebase.isChecked() :
+            armorResult += utils.getAttackDefenseBase(totalWatt)
+        armorResult += utils.getTeamDual(totalWatt, int(self.Skill_TeamdualPlayer.text()))
+        self.Assemble_totalarmor.setText(str(armorResult))
+
     def Assemble(self) :
         partsIndex = (legIndex, bodyIndex, weaponIndex, accIndex)
         subIndex = (self.Leg_Subcore.currentIndex(), self.Body_Subcore.currentIndex(), self.Weapon_Subcore.currentIndex())
@@ -443,6 +476,7 @@ class WindowClass(QMainWindow, form_class) :
             self.Assemble_damage.setText("없음")
         else :
             self.Assemble_damage.setText(str(assemble.GetDamage(partsIndex, subIndex, damageReinforce, self.actionFloat.isChecked())))
+        self.SetTotalDamage()
         
         # 체력 비례 데미지 계산
         dph = assemble.GetDamagePerHealth(partsIndex, subIndex)
@@ -457,6 +491,7 @@ class WindowClass(QMainWindow, form_class) :
         
         # 방어 계산
         self.Assemble_armor.setText(str(int(assemble.GetArmor(partsIndex, subIndex))))
+        self.SetTotalArmor()
         
         # 기타 특수 능력 정보 표시
         string = ""

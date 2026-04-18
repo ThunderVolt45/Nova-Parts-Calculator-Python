@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
+    <width>1280</width>
     <height>600</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>900</width>
+    <width>1280</width>
     <height>600</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>900</width>
+    <width>1280</width>
     <height>600</height>
    </size>
   </property>
@@ -1244,7 +1244,7 @@
    <widget class="QLabel" name="Acc_weight">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>460</x>
       <y>440</y>
       <width>71</width>
       <height>21</height>
@@ -1260,7 +1260,7 @@
    <widget class="QLabel" name="Acc_watt">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>460</x>
       <y>460</y>
       <width>71</width>
       <height>21</height>
@@ -1276,7 +1276,7 @@
    <widget class="QLabel" name="Acc_health">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>460</x>
       <y>480</y>
       <width>71</width>
       <height>21</height>
@@ -1292,7 +1292,7 @@
    <widget class="QLabel" name="Acc_damage">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>460</x>
       <y>500</y>
       <width>71</width>
       <height>21</height>
@@ -1308,7 +1308,7 @@
    <widget class="QLabel" name="Acc_cooldown">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>560</x>
       <y>480</y>
       <width>71</width>
       <height>21</height>
@@ -1324,7 +1324,7 @@
    <widget class="QLabel" name="Acc_range">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>560</x>
       <y>460</y>
       <width>71</width>
       <height>21</height>
@@ -1343,7 +1343,7 @@
    <widget class="QLabel" name="Acc_sight">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>560</x>
       <y>440</y>
       <width>71</width>
       <height>21</height>
@@ -1359,7 +1359,7 @@
    <widget class="QLabel" name="Acc_healthMagnification">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>660</x>
       <y>440</y>
       <width>71</width>
       <height>21</height>
@@ -1375,7 +1375,7 @@
    <widget class="QLabel" name="Acc_damageMagnification">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>660</x>
       <y>460</y>
       <width>71</width>
       <height>21</height>
@@ -1391,7 +1391,7 @@
    <widget class="QLabel" name="Acc_regen">
     <property name="geometry">
      <rect>
-      <x>400</x>
+      <x>660</x>
       <y>480</y>
       <width>81</width>
       <height>21</height>
@@ -1407,7 +1407,7 @@
    <widget class="QLabel" name="Acc_speed">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>560</x>
       <y>500</y>
       <width>71</width>
       <height>21</height>
@@ -1423,7 +1423,7 @@
    <widget class="QLabel" name="Acc_armor">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>460</x>
       <y>520</y>
       <width>71</width>
       <height>21</height>
@@ -1455,7 +1455,7 @@
    <widget class="QPushButton" name="Assemble_btn">
     <property name="geometry">
      <rect>
-      <x>770</x>
+      <x>960</x>
       <y>10</y>
       <width>121</width>
       <height>41</height>
@@ -1468,7 +1468,7 @@
    <widget class="QLabel" name="Assemble_label">
     <property name="geometry">
      <rect>
-      <x>625</x>
+      <x>815</x>
       <y>20</y>
       <width>131</width>
       <height>21</height>
@@ -1487,7 +1487,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>60</y>
       <width>81</width>
       <height>21</height>
@@ -1506,7 +1506,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>950</x>
       <y>60</y>
       <width>41</width>
       <height>21</height>
@@ -1528,7 +1528,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>90</y>
       <width>81</width>
       <height>21</height>
@@ -1547,7 +1547,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>950</x>
       <y>90</y>
       <width>41</width>
       <height>21</height>
@@ -1569,7 +1569,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>120</y>
       <width>81</width>
       <height>21</height>
@@ -1588,7 +1588,7 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>950</x>
       <y>120</y>
       <width>41</width>
       <height>21</height>
@@ -1610,7 +1610,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>150</y>
       <width>81</width>
       <height>21</height>
@@ -1629,7 +1629,7 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>930</x>
       <y>150</y>
       <width>61</width>
       <height>21</height>
@@ -1651,7 +1651,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>180</y>
       <width>81</width>
       <height>21</height>
@@ -1670,7 +1670,7 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>950</x>
       <y>180</y>
       <width>41</width>
       <height>21</height>
@@ -1692,7 +1692,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>210</y>
       <width>81</width>
       <height>21</height>
@@ -1711,7 +1711,7 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>950</x>
       <y>210</y>
       <width>41</width>
       <height>21</height>
@@ -1733,7 +1733,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>240</y>
       <width>81</width>
       <height>21</height>
@@ -1752,7 +1752,7 @@
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>950</x>
       <y>240</y>
       <width>41</width>
       <height>21</height>
@@ -1774,7 +1774,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>270</y>
       <width>81</width>
       <height>21</height>
@@ -1793,7 +1793,7 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>950</x>
       <y>270</y>
       <width>41</width>
       <height>21</height>
@@ -1815,7 +1815,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>300</y>
       <width>81</width>
       <height>21</height>
@@ -1834,7 +1834,7 @@
    <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>950</x>
       <y>300</y>
       <width>41</width>
       <height>21</height>
@@ -1856,7 +1856,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>330</y>
       <width>81</width>
       <height>21</height>
@@ -1875,7 +1875,7 @@
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>950</x>
       <y>330</y>
       <width>41</width>
       <height>21</height>
@@ -1897,7 +1897,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>390</y>
       <width>81</width>
       <height>21</height>
@@ -1916,7 +1916,7 @@
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>930</x>
       <y>390</y>
       <width>61</width>
       <height>21</height>
@@ -1938,7 +1938,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>420</y>
       <width>81</width>
       <height>21</height>
@@ -1957,7 +1957,7 @@
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>950</x>
       <y>420</y>
       <width>41</width>
       <height>21</height>
@@ -1979,7 +1979,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>1000</x>
       <y>360</y>
       <width>81</width>
       <height>21</height>
@@ -1998,7 +1998,7 @@
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>950</x>
       <y>360</y>
       <width>41</width>
       <height>21</height>
@@ -2017,7 +2017,7 @@
    <widget class="QPlainTextEdit" name="Assemble_etc">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>870</x>
       <y>450</y>
       <width>211</width>
       <height>101</height>
@@ -2043,13 +2043,390 @@
      <cstring>Leg_wattBase</cstring>
     </property>
    </widget>
+   <widget class="QCheckBox" name="Skill_Attackbase">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>80</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>공격 기본 적용</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="Skill_Defensebase">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>110</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>방어 기본 적용</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Skill_TeamdualPlayer">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>140</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Skill_TeamdualPlayerMax">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>140</y>
+      <width>56</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>/ 12명</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>140</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>팀 듀얼 적용</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Assemble_totaldamage">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>330</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>330</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>최종 공격</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="buddy">
+     <cstring>Leg_wattBase</cstring>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_16">
+    <property name="geometry">
+     <rect>
+      <x>1100</x>
+      <y>420</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>최종 방어</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="buddy">
+     <cstring>Leg_wattBase</cstring>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Assemble_totalarmor">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1180</x>
+      <y>420</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="Status_Deathmatch">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>20</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>데스매치 적용</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Acc_damageBase">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>490</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="damage_4">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>490</y>
+      <width>31</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>공격</string>
+    </property>
+    <property name="buddy">
+     <cstring>Leg_wattBase</cstring>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Acc_damageAdd">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>490</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0 / 0</string>
+    </property>
+    <property name="buddy">
+     <cstring>Leg_wattBase</cstring>
+    </property>
+   </widget>
+   <widget class="QLabel" name="health_4">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>460</y>
+      <width>31</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>체력</string>
+    </property>
+    <property name="buddy">
+     <cstring>Leg_wattBase</cstring>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Acc_healthBase">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>460</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Acc_damageReinforce">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>490</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Acc_armorReinforce">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>430</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Acc_armorAdd">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>430</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0 / 0</string>
+    </property>
+    <property name="buddy">
+     <cstring>Leg_wattBase</cstring>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Acc_healthAdd">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>460</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0 / 0</string>
+    </property>
+    <property name="buddy">
+     <cstring>Leg_wattBase</cstring>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Acc_armorBase">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>430</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="armor_4">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>430</y>
+      <width>31</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>방어</string>
+    </property>
+    <property name="buddy">
+     <cstring>Leg_wattBase</cstring>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="Acc_healthReinforce">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>460</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="Status_Towering">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>50</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>타워 변신</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>900</width>
+     <width>1280</width>
      <height>21</height>
     </rect>
    </property>

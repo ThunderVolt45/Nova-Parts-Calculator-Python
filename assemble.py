@@ -54,6 +54,8 @@ def GetWatt(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsFlo
     magnification += subCoreData["WattBonus"][subIndex[2]]
 
     watt *= 1 + magnification / 100
+
+    if watt < 0 : watt = 0
     
     if calculateAsFloat : return round(watt, 4)
     else : return int(watt)
@@ -80,6 +82,8 @@ def GetHealth(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsF
     magnification += accData[partsIndex[3]]["HealthBonus"]
         
     health *= 1 + magnification / 100
+
+    if health < 0 : health = 0
     
     if calculateAsFloat : return round(health, 4)
     else : return int(health)
@@ -106,7 +110,9 @@ def GetDamage(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsF
     magnification += accData[partsIndex[3]]["DamageBonus"]
         
     damage *= 1 + magnification / 100
-    
+
+    if damage < 0 : damage = 0
+
     if calculateAsFloat : return round(damage, 4)
     else : return int(damage)
     
@@ -237,8 +243,8 @@ def GetArmor(partsIndex: tuple, subIndex: tuple):
     armor += weaponData[partsIndex[2]]["Armor"]
     armor += accData[partsIndex[3]]["Armor"]
     armor += subCoreData["Armor"][subIndex[0]]
-    armor += subCoreData["Armor"][subIndex[0]]
-    armor += subCoreData["Armor"][subIndex[0]]
+    armor += subCoreData["Armor"][subIndex[1]]
+    armor += subCoreData["Armor"][subIndex[2]]
     
     if armor < 0 : armor = 0
     
