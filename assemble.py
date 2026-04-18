@@ -237,8 +237,8 @@ def GetArmor(partsIndex: tuple, subIndex: tuple):
     armor += weaponData[partsIndex[2]]["Armor"]
     armor += accData[partsIndex[3]]["Armor"]
     armor += subCoreData["Armor"][subIndex[0]]
-    armor += subCoreData["Armor"][subIndex[0]]
-    armor += subCoreData["Armor"][subIndex[0]]
+    armor += subCoreData["Armor"][subIndex[1]]
+    armor += subCoreData["Armor"][subIndex[2]]
     
     if armor < 0 : armor = 0
     
