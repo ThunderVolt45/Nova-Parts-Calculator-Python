@@ -22,7 +22,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 1,
@@ -47,7 +49,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 2,
@@ -72,7 +76,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 3,
@@ -97,7 +103,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 4,
@@ -122,7 +130,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 5,
@@ -147,7 +157,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 6,
@@ -172,7 +184,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 7,
@@ -197,7 +211,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 8,
@@ -222,7 +238,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 9,
@@ -247,7 +265,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 10,
@@ -272,7 +292,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 11,
@@ -297,7 +319,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 12,
@@ -322,7 +346,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 13,
@@ -347,7 +373,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 14,
@@ -372,7 +400,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 15,
@@ -397,7 +427,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 16,
@@ -422,7 +454,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 17,
@@ -447,7 +481,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 18,
@@ -472,7 +508,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 19,
@@ -498,7 +536,8 @@
     "Splash": 0,
     "SplashReduce": 0,
     "Special": "유닛을 타워로 만들어줍니다. (T키) 변신 후 체력 1.5배, 공격력 1.5배, 방어 +20, 사거리 -2, 연사 -50, 변신 시간 5초",
-    "Towering": 2
+    "Towering": 2,
+    "HasRandomOption": false
   },
   {
     "ID": 20,
@@ -523,7 +562,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 21,
@@ -548,7 +589,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 22,
@@ -573,7 +616,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 23,
@@ -598,7 +643,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 24,
@@ -623,7 +670,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 25,
@@ -648,7 +697,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 26,
@@ -673,7 +724,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 27,
@@ -698,7 +751,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 28,
@@ -724,7 +779,8 @@
     "Splash": 0,
     "SplashReduce": 0,
     "Special": "유닛을 타워로 만들어줍니다. (T키) 변신 후 체력 2배, 공격력 2배, 방어 +20, 사거리 +3, 변신 시간 10초",
-    "Towering": 1
+    "Towering": 1,
+    "HasRandomOption": false
   },
   {
     "ID": 29,
@@ -749,7 +805,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 30,
@@ -774,7 +832,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 31,
@@ -799,7 +859,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 32,
@@ -824,7 +886,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 33,
@@ -849,7 +913,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 34,
@@ -874,7 +940,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 35,
@@ -899,7 +967,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 36,
@@ -924,7 +994,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 37,
@@ -949,7 +1021,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 38,
@@ -974,7 +1048,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 39,
@@ -999,7 +1075,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 40,
@@ -1024,7 +1102,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 41,
@@ -1049,7 +1129,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 42,
@@ -1074,7 +1156,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 43,
@@ -1099,7 +1183,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 44,
@@ -1124,7 +1210,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 45,
@@ -1149,7 +1237,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 46,
@@ -1174,7 +1264,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 47,
@@ -1199,7 +1291,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 48,
@@ -1224,7 +1318,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 49,
@@ -1249,7 +1345,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 50,
@@ -1274,7 +1372,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 51,
@@ -1299,7 +1399,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 52,
@@ -1324,7 +1426,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 53,
@@ -1349,7 +1453,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 54,
@@ -1374,7 +1480,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 55,
@@ -1399,7 +1507,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 56,
@@ -1424,7 +1534,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 57,
@@ -1449,7 +1561,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 58,
@@ -1475,7 +1589,8 @@
     "Splash": 0,
     "SplashReduce": 0,
     "Special": "유닛을 타워로 만들어줍니다. (T키) 변신 후 체력 2배, 공격력 2배, 방어 +20, 사거리 +3, 변신 시간 10초",
-    "Towering": 1
+    "Towering": 1,
+    "HasRandomOption": false
   },
   {
     "ID": 59,
@@ -1500,7 +1615,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 60,
@@ -1527,7 +1644,7 @@
     "SplashReduce": 0,
     "Special": "유닛을 타워로 만들어줍니다. (T키) 부품 구입시 강화 수치가 랜덤하게 붙습니다. 변신 후 체력 1.5배, 공격력 1.5배, 방어 +20, 사거리 -2, 연사 -50, 변신 시간 5초",
     "Towering": 2,
-    "HasRandomOption": 1
+    "HasRandomOption": true
   },
   {
     "ID": 61,
@@ -1552,7 +1669,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": "특수 기술 (C키) 버튼을 누르면 자신의 유닛을 자폭시켜 주위의 적 유닛에게 데미지를 줍니다."
+    "Special": "특수 기술 (C키) 버튼을 누르면 자신의 유닛을 자폭시켜 주위의 적 유닛에게 데미지를 줍니다.",
+    "Towering": 0,
+    "HasRandomOption": true
   },
   {
     "ID": 62,
@@ -1577,7 +1696,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": "특수 기술 (C키) 버튼을 누르면 자신의 유닛을 자폭시켜 주위의 아군 유닛의 체력과 방어력을 올려 줍니다."
+    "Special": "특수 기술 (C키) 버튼을 누르면 자신의 유닛을 자폭시켜 주위의 아군 유닛의 체력과 방어력을 올려 줍니다.",
+    "Towering": 0,
+    "HasRandomOption": true
   },
   {
     "ID": 63,
@@ -1602,7 +1723,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": "특수 기술 (C키) 버튼을 누르면 자신의 유닛 일정 범위 안에 있는 유닛의 동작을 멈추게 합니다."
+    "Special": "특수 기술 (C키) 버튼을 누르면 자신의 유닛 일정 범위 안에 있는 유닛의 동작을 멈추게 합니다.",
+    "Towering": 0,
+    "HasRandomOption": true
   },
   {
     "ID": 64,
@@ -1627,7 +1750,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 65,
@@ -1652,7 +1777,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 66,
@@ -1677,7 +1804,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 67,
@@ -1702,7 +1831,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 68,
@@ -1727,7 +1858,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 69,
@@ -1752,7 +1885,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 70,
@@ -1777,7 +1912,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 71,
@@ -1802,7 +1939,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 72,
@@ -1827,7 +1966,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 73,
@@ -1852,7 +1993,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 74,
@@ -1877,7 +2020,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 75,
@@ -1902,7 +2047,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 76,
@@ -1927,7 +2074,9 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   },
   {
     "ID": 77,
@@ -1952,6 +2101,8 @@
     "Regenerate": 0,
     "Splash": 0,
     "SplashReduce": 0,
-    "Special": ""
+    "Special": "",
+    "Towering": 0,
+    "HasRandomOption": false
   }
 ]
