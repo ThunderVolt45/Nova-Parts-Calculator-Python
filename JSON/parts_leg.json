@@ -563,7 +563,7 @@
     "CanAttackGround": "FALSE",
     "CanAttackAir": "FALSE",
     "Pierce": 0,
-    "Speed": 85,
+    "Speed": 90,
     "Armor": 0,
     "Cooldown": 0,
     "Sight": 0,
