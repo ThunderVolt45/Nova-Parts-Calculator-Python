@@ -37,9 +37,13 @@ def GetWatt(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsFlo
     # 와트 계산
     watt = 0
 
-    watt += legData[partsIndex[0]]["Watt"]
-    watt += bodyData[partsIndex[1]]["Watt"]
-    watt += weaponData[partsIndex[2]]["Watt"]
+    legwatt = legData[partsIndex[0]]["Watt"] * (1 + (subCoreData["WattBonus"][subIndex[0]] / 100))
+    bodywatt = bodyData[partsIndex[1]]["Watt"] * (1 + (subCoreData["WattBonus"][subIndex[1]] / 100))
+    weaponwatt = weaponData[partsIndex[2]]["Watt"] * (1 + (subCoreData["WattBonus"][subIndex[2]] / 100))
+
+    watt += legwatt
+    watt += bodywatt
+    watt += weaponwatt
     watt += accData[partsIndex[3]]["Watt"]
     watt += subCoreData["Watt"][subIndex[0]]
     watt += subCoreData["Watt"][subIndex[1]]
@@ -48,17 +52,12 @@ def GetWatt(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsFlo
     watt -= utils.getWattReinforce(bodyData[partsIndex[1]]["Watt"], reinforce[1], calculateAsFloat)
     watt -= utils.getWattReinforce(weaponData[partsIndex[2]]["Watt"], reinforce[2], calculateAsFloat)
 
-    magnification = 0
-    magnification += subCoreData["WattBonus"][subIndex[0]]
-    magnification += subCoreData["WattBonus"][subIndex[1]]
-    magnification += subCoreData["WattBonus"][subIndex[2]]
-
-    watt *= 1 + magnification / 100
+    if watt < 0 : watt = 0
     
     if calculateAsFloat : return round(watt, 4)
     else : return int(watt)
 
-def GetHealth(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsFloat: bool):
+def GetHealth(partsIndex: tuple, subIndex: tuple, reinforce: tuple, accReinforce: int, calculateAsFloat: bool):
     # 체력 계산
     health = 0
     
@@ -72,19 +71,23 @@ def GetHealth(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsF
     health += utils.getHealthReinforce(legData[partsIndex[0]]["Watt"], reinforce[0], False, calculateAsFloat)
     health += utils.getHealthReinforce(bodyData[partsIndex[1]]["Health"], reinforce[1], True, calculateAsFloat)
     health += utils.getHealthReinforce(weaponData[partsIndex[2]]["Watt"], reinforce[2], False, calculateAsFloat)
-        
+    if accData[partsIndex[3]]["HasRandomOption"] :
+        health += accReinforce
+
     magnification = 0
     magnification += legData[partsIndex[0]]["HealthBonus"]
     magnification += bodyData[partsIndex[1]]["HealthBonus"]
     magnification += weaponData[partsIndex[2]]["HealthBonus"]
     magnification += accData[partsIndex[3]]["HealthBonus"]
-        
+
     health *= 1 + magnification / 100
+
+    if health < 0 : health = 0
     
     if calculateAsFloat : return round(health, 4)
     else : return int(health)
 
-def GetDamage(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsFloat: bool):
+def GetDamage(partsIndex: tuple, subIndex: tuple, reinforce: tuple, accReinforce: int, calculateAsFloat: bool):
     # 공격력 계산
     damage = 0
     
@@ -98,6 +101,8 @@ def GetDamage(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsF
     damage += utils.getDamageReinforce(legData[partsIndex[0]]["Watt"], reinforce[0], False, calculateAsFloat)
     damage += utils.getDamageReinforce(bodyData[partsIndex[1]]["Watt"], reinforce[1], False, calculateAsFloat)
     damage += utils.getDamageReinforce(weaponData[partsIndex[2]]["Damage"], reinforce[2], True, calculateAsFloat)
+    if accData[partsIndex[3]]["HasRandomOption"] :
+        damage += accReinforce
         
     magnification = 0
     magnification += legData[partsIndex[0]]["DamageBonus"]
@@ -106,7 +111,9 @@ def GetDamage(partsIndex: tuple, subIndex: tuple, reinforce: tuple, calculateAsF
     magnification += accData[partsIndex[3]]["DamageBonus"]
         
     damage *= 1 + magnification / 100
-    
+
+    if damage < 0 : damage = 0
+
     if calculateAsFloat : return round(damage, 4)
     else : return int(damage)
     
@@ -228,7 +235,7 @@ def GetPierce(partsIndex: tuple, subIndex: tuple):
     
     return pierce
 
-def GetArmor(partsIndex: tuple, subIndex: tuple):
+def GetArmor(partsIndex: tuple, subIndex: tuple, accReinforce: int):
     # 방어 계산
     armor = 0
     
@@ -239,6 +246,8 @@ def GetArmor(partsIndex: tuple, subIndex: tuple):
     armor += subCoreData["Armor"][subIndex[0]]
     armor += subCoreData["Armor"][subIndex[1]]
     armor += subCoreData["Armor"][subIndex[2]]
+    if accData[partsIndex[3]]["HasRandomOption"] :
+        armor += accReinforce
     
     if armor < 0 : armor = 0
     

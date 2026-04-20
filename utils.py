@@ -1,13 +1,13 @@
 import re
 
-def lineEditToNum(string: str) :
+def lineEditToNum(string: str, maxval : int = 100) :
     temp = re.sub(r'[^0-9]', '', string)
     
     if temp == "" : return "0"
     
     num = int(temp)
     
-    if num > 100 : num = 100
+    if num > maxval : num = maxval
     elif num < 0 : num = 0
     
     return str(num)
@@ -61,3 +61,17 @@ def getDamageBase(val: int, isWeapon: bool) :
             damage = val / 30
     
     return damage
+
+# 공격 기본, 방어 기본 적용치 계산
+def getAttackDefenseBase(watt: int) :
+    damageArmorIncrease = (int)(3 + (watt / 200))
+    return 10 if damageArmorIncrease > 10 else damageArmorIncrease
+
+# 팀 듀얼 적용치 계산
+def getTeamDual(watt: int, player: int) :
+    damageArmorIncrease = (int)(1 + (watt / 300))
+
+    if player > 12 : player = 12
+    if player < 0 : player = 0
+
+    return (5 if damageArmorIncrease > 5 else damageArmorIncrease) * player
