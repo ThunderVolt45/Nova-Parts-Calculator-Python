@@ -898,7 +898,7 @@
     "Watt": -20,
     "Health": 0,
     "HealthBonus": 0,
-    "Damage": 10,
+    "Damage": 11,
     "DamageBonus": 0,
     "DamagePerHealth": 0,
     "CanAttackGround": "FALSE",
