@@ -30,6 +30,7 @@ if (-not (Test-Path $venvPython)) {
     --onefile `
     --windowed `
     --name NovaPartsCalculator `
+    --manifest "NovaPartsCalculator.dpi.xml" `
     --add-data "calculator.ui;." `
     --add-data "partSelector.ui;." `
     --add-data "typeSelector.ui;." `
