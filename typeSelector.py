@@ -2,8 +2,8 @@ import os
 import sys
 import json
 import constant
-from PyQt5.QtWidgets import *
-from PyQt5 import uic, QtCore
+from PyQt6.QtWidgets import *
+from PyQt6 import uic, QtCore
 
 ###############################################################
 # UI파일 연결

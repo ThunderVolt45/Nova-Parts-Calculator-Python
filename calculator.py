@@ -5,8 +5,8 @@ import json
 import utils
 import constant
 import assemble
-from PyQt5.QtWidgets import *
-from PyQt5 import uic, QtCore
+from PyQt6.QtWidgets import *
+from PyQt6 import uic, QtCore
 from partSelector import partSelector
 from typeSelector import typeSelector
 
@@ -939,8 +939,13 @@ class WindowClass(QMainWindow, form_class) :
         self.SetWeaponReinforceValue()
 
 if __name__ == "__main__" :
+    QApplication.setHighDpiScaleFactorRoundingPolicy(
+        QtCore.Qt.HighDpiScaleFactorRoundingPolicy.PassThrough
+    )
+
     # QApplication : 프로그램을 실행시켜주는 클래스
-    app = QApplication(sys.argv) 
+    app = QApplication(sys.argv)
+    app.setApplicationName("Nova Parts Calculator")
 
     # WindowClass의 인스턴스 생성
     myWindow = WindowClass() 
@@ -949,4 +954,4 @@ if __name__ == "__main__" :
     myWindow.show()
 
     # 프로그램을 이벤트루프로 진입시키는(프로그램을 작동시키는) 코드
-    app.exec_()
+    app.exec()

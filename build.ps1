@@ -27,6 +27,7 @@ if (-not (Test-Path $venvPython)) {
 & $venvPython -m PyInstaller `
     --noconfirm `
     --clean `
+    --onefile `
     --windowed `
     --name NovaPartsCalculator `
     --add-data "calculator.ui;." `
@@ -35,4 +36,4 @@ if (-not (Test-Path $venvPython)) {
     --add-data "JSON;JSON" `
     calculator.py
 
-Write-Host "Built: dist\NovaPartsCalculator\NovaPartsCalculator.exe"
+Write-Host "Built: dist\NovaPartsCalculator.exe"
