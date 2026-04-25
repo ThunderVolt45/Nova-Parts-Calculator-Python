@@ -1,6 +1,6 @@
 # Build
 
-This project is a PyQt5 desktop app. The entry point is `calculator.py`.
+This project is a PyQt6 desktop app. The entry point is `calculator.py`.
 
 ## Run from source
 
@@ -19,11 +19,11 @@ python -m venv .venv
 The executable is created at:
 
 ```text
-dist\NovaPartsCalculator\NovaPartsCalculator.exe
+dist\NovaPartsCalculator.exe
 ```
 
 The PyInstaller command includes the `.ui` files and the `JSON` data directory.
 
 Do not run or distribute files from the `build` directory. That directory contains
 temporary PyInstaller files, and the exe inside it can fail with missing DLL errors.
-Use the `dist\NovaPartsCalculator` folder instead.
+Use `dist\NovaPartsCalculator.exe` instead.

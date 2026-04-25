@@ -2,11 +2,12 @@ import re
 import os
 import sys
 import json
+import ctypes
 import utils
 import constant
 import assemble
-from PyQt5.QtWidgets import *
-from PyQt5 import uic, QtCore
+from PyQt6.QtWidgets import *
+from PyQt6 import uic, QtCore
 from partSelector import partSelector
 from typeSelector import typeSelector
 
@@ -17,6 +18,27 @@ def resource_path(relativePath):
     # Get absolute path to resource, works for dev and for PyInstaller
     basePath = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
     return os.path.join(basePath, relativePath)
+
+def enable_windows_dpi_awareness():
+    if sys.platform != "win32":
+        return
+
+    try:
+        if ctypes.windll.user32.SetProcessDpiAwarenessContext(ctypes.c_void_p(-4)):
+            return
+    except (AttributeError, OSError):
+        pass
+
+    try:
+        if ctypes.windll.shcore.SetProcessDpiAwareness(2) == 0:
+            return
+    except (AttributeError, OSError):
+        pass
+
+    try:
+        ctypes.windll.user32.SetProcessDPIAware()
+    except (AttributeError, OSError):
+        pass
 
 form = resource_path("calculator.ui")
 form_class = uic.loadUiType(form)[0]
@@ -939,8 +961,15 @@ class WindowClass(QMainWindow, form_class) :
         self.SetWeaponReinforceValue()
 
 if __name__ == "__main__" :
+    enable_windows_dpi_awareness()
+
+    QApplication.setHighDpiScaleFactorRoundingPolicy(
+        QtCore.Qt.HighDpiScaleFactorRoundingPolicy.PassThrough
+    )
+
     # QApplication : 프로그램을 실행시켜주는 클래스
-    app = QApplication(sys.argv) 
+    app = QApplication(sys.argv)
+    app.setApplicationName("Nova Parts Calculator")
 
     # WindowClass의 인스턴스 생성
     myWindow = WindowClass() 
@@ -949,4 +978,4 @@ if __name__ == "__main__" :
     myWindow.show()
 
     # 프로그램을 이벤트루프로 진입시키는(프로그램을 작동시키는) 코드
-    app.exec_()
+    app.exec()
