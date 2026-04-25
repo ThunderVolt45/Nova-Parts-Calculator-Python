@@ -1,5 +1,7 @@
 # Nova Parts Calculator
 
+![부품 계산기 스크린샷](./Docs/Image/calculator-screenshot.png)
+
 Nova Parts Calculator는 실시간 전략 게임 노바 1492의 부품 조합 능력치를 계산하는 Python 기반 GUI 데스크톱 앱입니다.
 
 ## 주요 기능
